@@ -1,0 +1,22 @@
+return
+{
+[2] = {room_id=2,win_add=20,lose_add=10,room_type=1,},
+[3] = {room_id=3,win_add=50,lose_add=25,room_type=1,},
+[4] = {room_id=4,win_add=100,lose_add=50,room_type=1,},
+[5] = {room_id=5,win_add=200,lose_add=100,room_type=1,},
+[6] = {room_id=6,win_add=500,lose_add=250,room_type=1,},
+[8] = {room_id=8,win_add=1000,lose_add=500,room_type=1,},
+[12] = {room_id=12,win_add=2000,lose_add=1000,room_type=1,},
+[13] = {room_id=13,win_add=500,lose_add=250,room_type=1,},
+[103] = {room_id=103,win_add=40,lose_add=20,room_type=2,},
+[105] = {room_id=105,win_add=600,lose_add=300,room_type=2,},
+[106] = {room_id=106,win_add=1200,lose_add=600,room_type=2,},
+[301] = {room_id=301,win_add=20,lose_add=10,room_type=3,},
+[302] = {room_id=302,win_add=100,lose_add=50,room_type=3,},
+[303] = {room_id=303,win_add=500,lose_add=250,room_type=3,},
+[601] = {room_id=601,win_add=20,lose_add=10,room_type=3,},
+[602] = {room_id=602,win_add=100,lose_add=50,room_type=3,},
+[603] = {room_id=603,win_add=600,lose_add=300,room_type=3,},
+[1101] = {room_id=1101,win_add=50,lose_add=25,room_type=1,},
+[1102] = {room_id=1102,win_add=100,lose_add=50,room_type=1,},
+}

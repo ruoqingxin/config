@@ -1,0 +1,23 @@
+return
+{
+[1] = {lv=1,ipu=1,ecpm=55,},
+[2] = {lv=2,ipu=1,ecpm=60,},
+[3] = {lv=3,ipu=2,ecpm=45,},
+[4] = {lv=4,ipu=2,ecpm=50,},
+[5] = {lv=5,ipu=2,ecpm=55,},
+[6] = {lv=6,ipu=3,ecpm=40,},
+[7] = {lv=7,ipu=3,ecpm=45,},
+[8] = {lv=8,ipu=3,ecpm=50,},
+[9] = {lv=9,ipu=4,ecpm=40,},
+[10] = {lv=10,ipu=1,ecpm=50,},
+[11] = {lv=11,ipu=1,ecpm=65,},
+[12] = {lv=12,ipu=1,ecpm=70,},
+[13] = {lv=13,ipu=1,ecpm=30,},
+[14] = {lv=14,ipu=1,ecpm=35,},
+[15] = {lv=15,ipu=1,ecpm=40,},
+[16] = {lv=16,ipu=1,ecpm=45,},
+[17] = {lv=17,ipu=2,ecpm=30,},
+[18] = {lv=18,ipu=2,ecpm=35,},
+[19] = {lv=19,ipu=2,ecpm=40,},
+[20] = {lv=20,ipu=2,ecpm=60,},
+}

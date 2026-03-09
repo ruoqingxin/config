@@ -1,0 +1,23 @@
+return
+{
+[1] = {id=1,mode_type="1",type="1,3,4",order=1,broadcast_name=180013,},
+[2] = {id=2,mode_type="1",type="1,3,4",order=2,broadcast_name=180023,},
+[3] = {id=3,mode_type="1",type="1,3,4",order=2,broadcast_name=180033,},
+[4] = {id=4,mode_type="1",type="1,3,4",order=2,broadcast_name=180043,},
+[5] = {id=5,mode_type="1",type="1,3,4",order=2,broadcast_name=180053,},
+[6] = {id=6,mode_type="1",type="1,3,4",order=2,broadcast_name=180063,},
+[7] = {id=7,mode_type="1",type="1,3,4",order=2,broadcast_name=180073,},
+[8] = {id=8,mode_type="1",type="1,3,4",order=2,broadcast_name=180083,},
+[9] = {id=9,mode_type="1",type="1,3,4",order=2,broadcast_name=180093,},
+[10] = {id=10,mode_type="1",type="1,3,4",order=2,broadcast_name=180103,},
+[11] = {id=11,mode_type="1",type="1,3,4",order=2,broadcast_name=180113,},
+[12] = {id=12,mode_type="1,2",type="1,3,4",order=2,broadcast_name=180123,},
+[13] = {id=13,mode_type="2",type="1,3,4",order=2,broadcast_name=180133,},
+[14] = {id=14,mode_type="2",type="1,3,4",order=2,broadcast_name=180143,},
+[15] = {id=15,mode_type="2",type="1,3,4",order=2,broadcast_name=180153,},
+[16] = {id=16,mode_type="2",type="1,3,4",order=2,broadcast_name=180163,},
+[17] = {id=17,mode_type="2",type="1,3,4",order=2,broadcast_name=180173,},
+[18] = {id=18,mode_type="2",type="1,3,4",order=2,broadcast_name=180183,},
+[19] = {id=19,mode_type="2",type="1,3,4",order=2,broadcast_name=180193,},
+[20] = {id=20,mode_type="1",type="1,3,4",order=1,broadcast_name=180203,},
+}

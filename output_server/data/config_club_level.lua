@@ -1,0 +1,23 @@
+return
+{
+[1] = {id=1,level_up=5100,reduce=340,member_limit=30,secretary_limit=2,elite_limit=30,cue_limit="5,0",},
+[2] = {id=2,level_up=13100,reduce=400,member_limit=35,secretary_limit=2,elite_limit=35,cue_limit="5,1",},
+[3] = {id=3,level_up=24500,reduce=460,member_limit=40,secretary_limit=2,elite_limit=40,cue_limit="5,2",},
+[4] = {id=4,level_up=39900,reduce=510,member_limit=45,secretary_limit=2,elite_limit=45,cue_limit="5,3",},
+[5] = {id=5,level_up=59900,reduce=570,member_limit=50,secretary_limit=2,elite_limit=50,cue_limit="5,4",},
+[6] = {id=6,level_up=85000,reduce=630,member_limit=55,secretary_limit=3,elite_limit=55,cue_limit="5,5",},
+[7] = {id=7,level_up=115900,reduce=690,member_limit=60,secretary_limit=3,elite_limit=60,cue_limit="6,0",},
+[8] = {id=8,level_up=153000,reduce=740,member_limit=65,secretary_limit=3,elite_limit=65,cue_limit="6,1",},
+[9] = {id=9,level_up=201000,reduce=800,member_limit=70,secretary_limit=3,elite_limit=70,cue_limit="6,2",},
+[10] = {id=10,level_up=261000,reduce=860,member_limit=75,secretary_limit=3,elite_limit=75,cue_limit="6,3",},
+[11] = {id=11,level_up=334100,reduce=910,member_limit=80,secretary_limit=4,elite_limit=80,cue_limit="6,4",},
+[12] = {id=12,level_up=421500,reduce=970,member_limit=85,secretary_limit=4,elite_limit=85,cue_limit="6,5",},
+[13] = {id=13,level_up=524400,reduce=1030,member_limit=90,secretary_limit=4,elite_limit=90,cue_limit="7,0",},
+[14] = {id=14,level_up=643800,reduce=1090,member_limit=95,secretary_limit=4,elite_limit=95,cue_limit="7,1",},
+[15] = {id=15,level_up=780900,reduce=1140,member_limit=100,secretary_limit=4,elite_limit=100,cue_limit="7,2",},
+[16] = {id=16,level_up=936900,reduce=1200,member_limit=105,secretary_limit=5,elite_limit=105,cue_limit="7,3",},
+[17] = {id=17,level_up=1112900,reduce=1260,member_limit=110,secretary_limit=5,elite_limit=110,cue_limit="7,4",},
+[18] = {id=18,level_up=1310000,reduce=1310,member_limit=115,secretary_limit=5,elite_limit=115,cue_limit="7,5",},
+[19] = {id=19,level_up=1529400,reduce=1370,member_limit=120,secretary_limit=5,elite_limit=120,cue_limit="7,5",},
+[20] = {id=20,level_up=99999999,reduce=1430,member_limit=125,secretary_limit=5,elite_limit=125,cue_limit="7,5",},
+}

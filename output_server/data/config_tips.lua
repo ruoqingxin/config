@@ -1,0 +1,22 @@
+return
+{
+[1] = {id=1,type=1,text=170012,},
+[2] = {id=2,type=1,text=170022,},
+[3] = {id=3,type=1,text=170032,},
+[4] = {id=4,type=1,text=170042,},
+[5] = {id=5,type=1,text=170052,},
+[6] = {id=6,type=2,text=170062,},
+[7] = {id=7,type=2,text=170072,},
+[8] = {id=8,type=2,text=170082,},
+[9] = {id=9,type=2,text=170092,},
+[10] = {id=10,type=2,text=170102,},
+[11] = {id=11,type=3,text=170112,},
+[12] = {id=12,type=3,text=170122,},
+[13] = {id=13,type=3,text=170132,},
+[14] = {id=14,type=3,text=170142,},
+[15] = {id=15,type=5,text=170152,},
+[16] = {id=16,type=5,text=170162,},
+[17] = {id=17,type=5,text=170172,},
+[18] = {id=18,type=5,text=170182,},
+[19] = {id=19,type=6,text=170142,},
+}

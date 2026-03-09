@@ -1,0 +1,21 @@
+return
+{
+[1] = {id=1,type=0,progress={1,},link=0,},
+[2] = {id=2,type=0,progress={1,1,2,},link=0,},
+[3] = {id=3,type=0,progress={3,},link=0,},
+[4] = {id=4,type=0,progress={2,2,},link=0,},
+[5] = {id=5,type=0,progress={3,},link=0,},
+[6] = {id=6,type=1,progress={},link=0,},
+[8] = {id=8,type=1,progress={},link=0,},
+[10] = {id=10,type=1,progress={},link=0,},
+[11] = {id=11,type=1,progress={},link=0,},
+[20] = {id=20,type=0,progress={1000,},link=0,},
+[21] = {id=21,type=0,progress={1000,},link=0,},
+[22] = {id=22,type=0,progress={11000,},link=0,},
+[23] = {id=23,type=0,progress={1500,},link=0,},
+[24] = {id=24,type=1,progress={},link=0,},
+[25] = {id=25,type=1,progress={},link=0,},
+[26] = {id=26,type=1,progress={},link=0,},
+[27] = {id=27,type=1,progress={},link=0,},
+[28] = {id=28,type=1,progress={},link=0,},
+}

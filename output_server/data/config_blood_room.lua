@@ -1,0 +1,6 @@
+return
+{
+[201] = {id=201,ball={{2,1,},{3,1,},{4,1,},{5,1,},{6,2,},},ball_special={{8,6,},},begin_ball={3,3,5,4,4,5,},begin_ball_special={8,8,8,8,8,8,},hole_mul={2,2,3,3,4,5,},hole_mul_special={10,10,10,10,10,10,},circle_num=7,limit=15000,commission=3,level={801,701,601,301,401,101,},level_special=901,prop_see={700033,501,},free_kick_open=0,free_kick_price=5,coin_interval={{0,5000,},{5001,10000,},{10001,20000,},{20001,50000,},{50001,0,},},},
+[202] = {id=202,ball={{2,1,},{3,1,},{4,1,},{5,1,},{6,2,},},ball_special={{8,6,},},begin_ball={3,3,5,4,4,5,},begin_ball_special={8,8,8,8,8,8,},hole_mul={2,2,3,3,4,5,},hole_mul_special={10,10,10,10,10,10,},circle_num=7,limit=30000,commission=3,level={802,702,602,302,402,102,},level_special=902,prop_see={700033,502,},free_kick_open=0,free_kick_price=10,coin_interval={{0,50000,},{50001,100000,},{100001,200000,},{200001,500000,},{500001,1000000,},{1000001,0,},},},
+[203] = {id=203,ball={{3,3,},{4,2,},{5,2,},{6,2,},{7,3,},},ball_special={{8,12,},},begin_ball={4,4,6,5,5,6,},begin_ball_special={8,8,8,8,8,8,},hole_mul={4,4,6,6,8,8,},hole_mul_special={10,10,10,10,10,10,},circle_num=7,limit=80000,commission=3,level={803,703,603,303,403,103,},level_special=903,prop_see={700033,503,},free_kick_open=1,free_kick_price=20,coin_interval={{0,1000000,},{1000001,2000000,},{2000001,0,},},},
+}

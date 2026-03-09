@@ -1,0 +1,4 @@
+return
+{
+[1] = {id=1,is_new_draw=0,name=980020,rule_name=10025,cue=101868,draw_coin={{49,1,},{49,9,},},jackpot={1,10,9,8,7,6,5,4,3,},discount_gift_id={306,1,},exchange_coin_id=72,exchange_id={1,2,3,4,5,},cumulative_id={1,2,3,4,5,},single_draw={100,0,},begin_time="2025/8/1 0:00:00",end_time="2025/8/31 23:59:59",jackpot_free={{3,10,},{4,10,},{5,10,},},jackpot_common={{3,10,},{4,10,},{5,10,},{6,30,},{7,20,},{8,10,},{9,8,},{10,2,},},jackpot_premium={},Scene="Z_cue_101860",active="new_ui_100354_3d",img="ldjl",gift=4015,progress_color="#FFFAE9",num_color="#FFFAE9",color="#FFFAE9",button_icon_dan="ui_btn_qgcj_an_dc",one_color="#FFFFFF",button_icon="ui_btn_qgcj_an_sc",ten_color="#874300",show_cue=1,prop=[[{"scale":1,"rotation":20,"x":780,"y":400,"time":7000}]],},
+}

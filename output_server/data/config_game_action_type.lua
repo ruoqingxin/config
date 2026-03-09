@@ -1,0 +1,22 @@
+return
+{
+[1] = {id=1,game_action__name=31100,game_action_icon="ui_btn_qj_yqpg",use_item={},botton_pos=1,sort=1,},
+[2] = {id=2,game_action__name=31101,game_action_icon="ui_btn_qj_ty",use_item={},botton_pos=1,sort=2,},
+[3] = {id=3,game_action__name=31102,game_action_icon="ui_btn_qj_fx",use_item={{id=600011,num=1,},},botton_pos=2,sort=2,},
+[4] = {id=4,game_action__name=31103,game_action_icon="ui_btn_qj_hq",use_item={{id=600012,num=1,},},botton_pos=2,sort=3,},
+[5] = {id=5,game_action__name=31104,game_action_icon="ui_btn_qj_lz",use_item={{id=600013,num=1,},},botton_pos=3,sort=1,},
+[6] = {id=6,game_action__name=31105,game_action_icon="ui_btn_qj_zz",use_item={{id=600014,num=1,},},botton_pos=3,sort=2,},
+[7] = {id=7,game_action__name=31106,game_action_icon="ui_btn_qj_ts",use_item={{id=600015,num=1,},},botton_pos=3,sort=3,},
+[8] = {id=8,game_action__name=31107,game_action_icon="ui_btn_qj_zc",use_item={{id=600016,num=1,},},botton_pos=3,sort=4,},
+[9] = {id=9,game_action__name=31108,game_action_icon="ui_btn_qj_qz",use_item={},botton_pos=2,sort=1,},
+[10] = {id=10,game_action__name=31109,game_action_icon="ui_btn_qj_cl",use_item={},botton_pos=3,sort=5,},
+[11] = {id=11,game_action__name=31110,game_action_icon="ui_btn_qj_th",use_item={{id=600017,num=1,},},botton_pos=4,sort=2,},
+[12] = {id=12,game_action__name=31111,game_action_icon="ui_btn_qj_rs",use_item={},botton_pos=4,sort=3,},
+[13] = {id=13,game_action__name=31112,game_action_icon="ui_btn_qj_tc",use_item={},botton_pos=4,sort=1,},
+[14] = {id=14,game_action__name=31113,game_action_icon="ui_btn_qj_cd",use_item={},botton_pos=4,sort=4,},
+[15] = {id=15,game_action__name=31114,game_action_icon="ui_btn_qj_fxqp",use_item={},botton_pos=4,sort=5,},
+[16] = {id=16,game_action__name=31115,game_action_icon="ui_btn_qj_zb",use_item={},botton_pos=4,sort=6,},
+[17] = {id=17,game_action__name=31116,game_action_icon="ui_btn_qj_js",use_item={{id=600018,num=1,},},botton_pos=2,sort=4,},
+[18] = {id=18,game_action__name=31117,game_action_icon="ui_btn_qj_bq",use_item={},botton_pos=5,sort=0,},
+[19] = {id=19,game_action__name=31118,game_action_icon="ui_btn_qj_sz",use_item={},botton_pos=4,sort=7,},
+}

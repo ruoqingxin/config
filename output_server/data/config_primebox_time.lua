@@ -1,0 +1,4 @@
+return
+{
+[27] = {id=27,acenter_pr=1,name=995140,rule_name=995141,shop_name=995142,background="ui_image_xymb",shop_icon="",shop_button="ui_fzcj_btn_dh",button_icon_dan="ui_lldb_an_dc",button_icon="ui_lldb_an_sc",reward_show="ui_xymb_kuang",reward_show_bottom="ui_xymb_dhbd",reward_light="ui_prop_base_fx01",location="",free_button="ui_fzcj_btn_mrlq_1",start_time="2025/4/1 0:00:00",end_time="2025/4/30 23:59:59",reward_id={81,82,83,84,85,86,87,88,89,90,91,},show_id={{81,},{81,81,},{81,81,81,81,},},exchange_id={63,64,65,66,},prize_instruction="ui_fzcj_btn_jc",prize="ui_fzcj_tc_xmxy",color="#E2DCED",firstprize_back="",daily_reward={43,1,},consume_one={44,1,},consume_ten={44,9,},gift=13005,gender_btn={"ui_fzcj_btn_xb_1","ui_fzcj_btn_xb_2",},},
+}

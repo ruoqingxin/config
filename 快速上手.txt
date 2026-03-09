@@ -1,0 +1,13 @@
+策划需要把下面两条链接看完即可学会配置。
+教程链接：
+快速上手：https://luban.doc.code-philosophy.com/docs/beginner/quickstart
+FAQ：https://luban.doc.code-philosophy.com/docs/help/faq
+
+
+必要的安装：dotnet-sdk-8.0.405-win-x64.exe
+
+配置表目录：Datas
+客户端导出目录：output_client
+服务器导出目录：output_server
+
+导出配置批处理文件：gen_all.bat   双击 即可导出服务器跟客户端的配置

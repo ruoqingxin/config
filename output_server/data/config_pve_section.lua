@@ -1,0 +1,21 @@
+return
+{
+[1] = {id=1,name=500011,count_star=0,max_level=1999,notselectImg="ui_text_ys_2",selectImg="ui_text_ys_1",bgImg="bg_map",star_1={30,60,90,},reward_1={50001,50002,50003,},},
+[2] = {id=2,name=500021,count_star=80,max_level=2999,notselectImg="ui_text_xr_2",selectImg="ui_text_xr_1",bgImg="bg_map",star_1={30,60,90,},reward_1={50004,50005,50006,},},
+[3] = {id=3,name=500031,count_star=160,max_level=3999,notselectImg="ui_text_zg_2",selectImg="ui_text_zg_1",bgImg="bg_map",star_1={30,60,90,},reward_1={50007,50008,50009,},},
+[4] = {id=4,name=500041,count_star=240,max_level=4999,notselectImg="ui_text_yz_2",selectImg="ui_text_yz_1",bgImg="bg_map",star_1={30,60,90,},reward_1={50010,50011,50012,},},
+[5] = {id=5,name=500051,count_star=320,max_level=5999,notselectImg="ui_text_sj_2",selectImg="ui_text_sj_1",bgImg="bg_map",star_1={30,60,90,},reward_1={50013,50014,50015,},},
+[6] = {id=6,name=500061,count_star=400,max_level=6999,notselectImg="btn_zgtzs",selectImg="btn_zgtzs_xz",bgImg="bg_map",star_1={30,60,90,},reward_1={50001,50002,50003,},},
+[7] = {id=7,name=500071,count_star=480,max_level=7999,notselectImg="btn_rbtzs",selectImg="btn_rbtzs_xz",bgImg="bg_map",star_1={30,60,90,},reward_1={50004,50005,50006,},},
+[8] = {id=8,name=500081,count_star=560,max_level=8999,notselectImg="btn_mgtzs",selectImg="btn_mgtzs_xz",bgImg="bg_map",star_1={30,60,90,},reward_1={50007,50008,50009,},},
+[9] = {id=9,name=500091,count_star=640,max_level=9999,notselectImg="btn_hgtzs",selectImg="btn_hgtzs_xz",bgImg="bg_map",star_1={30,60,90,},reward_1={50010,50011,50012,},},
+[10] = {id=10,name=500101,count_star=720,max_level=10999,notselectImg="btn_fgtzs",selectImg="btn_fgtzs_xz",bgImg="bg_map",star_1={30,60,90,},reward_1={50013,50014,50015,},},
+[11] = {id=11,name=500111,count_star=800,max_level=11999,notselectImg="section_1",selectImg="section_1",bgImg="bg_map",star_1={30,60,90,},reward_1={50001,50002,50003,},},
+[12] = {id=12,name=500121,count_star=880,max_level=12999,notselectImg="section_1",selectImg="section_1",bgImg="bg_map",star_1={30,60,90,},reward_1={50004,50005,50006,},},
+[13] = {id=13,name=500131,count_star=960,max_level=13999,notselectImg="section_1",selectImg="section_1",bgImg="bg_map",star_1={30,60,90,},reward_1={50007,50008,50009,},},
+[14] = {id=14,name=500141,count_star=1040,max_level=14999,notselectImg="section_1",selectImg="section_1",bgImg="bg_map",star_1={30,60,90,},reward_1={50010,50011,50012,},},
+[15] = {id=15,name=500151,count_star=1120,max_level=15999,notselectImg="section_1",selectImg="section_1",bgImg="bg_map",star_1={30,60,90,},reward_1={50013,50014,50015,},},
+[16] = {id=16,name=500161,count_star=1200,max_level=16999,notselectImg="section_1",selectImg="section_1",bgImg="bg_map",star_1={30,60,90,},reward_1={50001,50002,50003,},},
+[17] = {id=17,name=500171,count_star=1280,max_level=17999,notselectImg="section_1",selectImg="section_1",bgImg="bg_map",star_1={30,60,90,},reward_1={50001,50002,50003,},},
+[18] = {id=18,name=500181,count_star=1360,max_level=18999,notselectImg="section_1",selectImg="section_1",bgImg="bg_map",star_1={30,60,90,},reward_1={50001,50002,50003,},},
+}

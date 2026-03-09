@@ -1,0 +1,21 @@
+return
+{
+[1] = {id=1,gear_discount=18,name_icon="ui_cq_gmtc_bt_3",discount="0.15",diamond=207,discount_weight=400,gear="20.7",charge_id=171,reward={1,207,},img="new_ui_draw_icon_fx",},
+[2] = {id=2,gear_discount=30,name_icon="ui_cq_gmtc_bt_3",discount="0.15",diamond=345,discount_weight=300,gear="34.5",charge_id=177,reward={1,345,},img="new_ui_draw_icon_fx",},
+[3] = {id=3,gear_discount=68,name_icon="ui_cq_gmtc_bt_3",discount="0.15",diamond=782,discount_weight=300,gear="78.2",charge_id=183,reward={1,782,},img="new_ui_draw_icon_fx",},
+[4] = {id=4,gear_discount=18,name_icon="ui_cq_gmtc_bt_2",discount="0.18",diamond=212,discount_weight=400,gear="21.2",charge_id=172,reward={1,212,},img="new_ui_draw_icon_fx",},
+[5] = {id=5,gear_discount=30,name_icon="ui_cq_gmtc_bt_2",discount="0.18",diamond=354,discount_weight=300,gear="35.4",charge_id=178,reward={1,354,},img="new_ui_draw_icon_fx",},
+[6] = {id=6,gear_discount=68,name_icon="ui_cq_gmtc_bt_2",discount="0.18",diamond=802,discount_weight=300,gear="80.2",charge_id=184,reward={1,802,},img="new_ui_draw_icon_fx",},
+[7] = {id=7,gear_discount=18,name_icon="ui_cq_gmtc_bt_1",discount="0.2",diamond=216,discount_weight=400,gear="21.6",charge_id=173,reward={1,216,},img="new_ui_draw_icon_fx",},
+[8] = {id=8,gear_discount=30,name_icon="ui_cq_gmtc_bt_1",discount="0.2",diamond=360,discount_weight=300,gear="36",charge_id=179,reward={1,360,},img="new_ui_draw_icon_fx",},
+[9] = {id=9,gear_discount=68,name_icon="ui_cq_gmtc_bt_1",discount="0.2",diamond=816,discount_weight=300,gear="81.6",charge_id=185,reward={1,816,},img="new_ui_draw_icon_fx",},
+[10] = {id=10,gear_discount=6,name_icon="ui_cq_gmtc_bt_3",discount="0.15",diamond=69,discount_weight=400,gear="6.9",charge_id=174,reward={1,69,},img="new_ui_draw_icon_fx",},
+[11] = {id=11,gear_discount=12,name_icon="ui_cq_gmtc_bt_3",discount="0.15",diamond=138,discount_weight=400,gear="13.8",charge_id=180,reward={1,138,},img="new_ui_draw_icon_fx",},
+[12] = {id=12,gear_discount=98,name_icon="ui_cq_gmtc_bt_3",discount="0.15",diamond=1127,discount_weight=400,gear="112.7",charge_id=186,reward={1,1127,},img="new_ui_draw_icon_fx",},
+[13] = {id=13,gear_discount=6,name_icon="ui_cq_gmtc_bt_2",discount="0.18",diamond=70,discount_weight=400,gear="7",charge_id=175,reward={1,70,},img="new_ui_draw_icon_fx",},
+[14] = {id=14,gear_discount=12,name_icon="ui_cq_gmtc_bt_2",discount="0.18",diamond=141,discount_weight=400,gear="14.1",charge_id=181,reward={1,141,},img="new_ui_draw_icon_fx",},
+[15] = {id=15,gear_discount=98,name_icon="ui_cq_gmtc_bt_2",discount="0.18",diamond=1156,discount_weight=400,gear="115.6",charge_id=187,reward={1,1156,},img="new_ui_draw_icon_fx",},
+[16] = {id=16,gear_discount=6,name_icon="ui_cq_gmtc_bt_1",discount="0.2",diamond=72,discount_weight=400,gear="7.2",charge_id=176,reward={1,72,},img="new_ui_draw_icon_fx",},
+[17] = {id=17,gear_discount=12,name_icon="ui_cq_gmtc_bt_1",discount="0.2",diamond=144,discount_weight=400,gear="14.4",charge_id=182,reward={1,144,},img="new_ui_draw_icon_fx",},
+[18] = {id=18,gear_discount=98,name_icon="ui_cq_gmtc_bt_1",discount="0.2",diamond=1176,discount_weight=400,gear="117.6",charge_id=188,reward={1,1176,},img="new_ui_draw_icon_fx",},
+}

@@ -1,0 +1,21 @@
+return
+{
+[1] = {id=1,icon="",type=0,point=400,reward={{id=2,num=100,},},name=860011,name_detail=860012,},
+[2] = {id=2,icon="",type=0,point=800,reward={{id=2,num=200,},},name=860021,name_detail=860022,},
+[3] = {id=3,icon="",type=0,point=1200,reward={{id=2,num=300,},},name=860031,name_detail=860032,},
+[4] = {id=4,icon="",type=0,point=1600,reward={{id=2,num=400,},},name=860041,name_detail=860042,},
+[5] = {id=5,icon="activity_1",type=1,point=1500,reward={{id=2,num=500,},},name=860051,name_detail=860052,},
+[6] = {id=6,icon="activity_1",type=1,point=3000,reward={{id=2,num=600,},},name=860061,name_detail=860062,},
+[7] = {id=7,icon="activity_2",type=1,point=7000,reward={{id=2,num=700,},},name=860071,name_detail=860072,},
+[8] = {id=8,icon="activity_2",type=1,point=11000,reward={{id=2,num=800,},},name=860081,name_detail=860082,},
+[9] = {id=9,icon="activity_3",type=1,point=15000,reward={{id=2,num=900,},},name=860091,name_detail=860092,},
+[10] = {id=10,icon="activity_3",type=1,point=20000,reward={{id=2,num=1000,},},name=860101,name_detail=860102,},
+[11] = {id=11,icon="activity_4",type=1,point=28000,reward={{id=2,num=1100,},},name=860111,name_detail=860112,},
+[12] = {id=12,icon="activity_4",type=1,point=32000,reward={{id=2,num=1200,},},name=860121,name_detail=860122,},
+[13] = {id=13,icon="activity_5",type=1,point=36000,reward={{id=2,num=1300,},},name=860131,name_detail=860132,},
+[14] = {id=14,icon="activity_5",type=1,point=40000,reward={{id=2,num=1400,},},name=860141,name_detail=860142,},
+[15] = {id=15,icon="activity_6",type=1,point=48000,reward={{id=2,num=1500,},},name=860151,name_detail=860152,},
+[16] = {id=16,icon="activity_6",type=1,point=60000,reward={{id=2,num=1600,},},name=860161,name_detail=860162,},
+[17] = {id=17,icon="activity_7",type=1,point=80000,reward={{id=2,num=1700,},},name=860171,name_detail=860172,},
+[18] = {id=18,icon="activity_7",type=1,point=100000,reward={{id=2,num=1800,},},name=860181,name_detail=860182,},
+}

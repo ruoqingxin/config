@@ -1,0 +1,44 @@
+stages:
+    - build
+
+variables:
+    TARGET: ${CI_COMMIT_REF_NAME}
+    CONFIG_PATH: /game/xq_config/${CI_COMMIT_REF_NAME}
+    DEST_SERVER_PATH: /usr/xq_game/${CI_COMMIT_REF_NAME}_game/servers
+    ##CLIENT_PATH : /usr/ballgame/mini_game/client/dev
+job1:
+    stage: build
+    only:
+        - dev
+    tags:
+        - ball_config
+    script:
+      - echo 'start sync file to server ${CONFIG_PATH}'
+      - mkdir -p ${CONFIG_PATH}
+      - rsync -avzL output_server output_client ${CONFIG_PATH}/
+      - rsync -rvL ${CONFIG_PATH}/output_server/data/* ${DEST_SERVER_PATH}/luaconfig/
+      - cd ${DEST_SERVER_PATH}
+      - ./stop.sh
+      - sleep 1
+      - ./start.sh
+      - echo 'update server ok'
+      #- echo 'start update config file in ${CLIENT_PATH}'
+      #- rm -rf ${CLIENT_PATH}/bin/config/configbin.zip
+      #- zip -j ${CLIENT_PATH}/bin/config/configbin.zip ${CONFIG_PATH}/output_client/data/*
+     # - cp -f ${CONFIG_PATH}/configbin.bin ${CLIENT_PATH}/bin/
+      #- echo 'update client ok'
+
+    # after_script:
+    #   - >
+    #     if [ $CI_JOB_STATUS == 'failed' ]; then
+    #     curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=286b97b1-c74b-4159-a59f-ba8a55831221' \
+    #         -H 'Content-Type: application/json' \
+    #         -d '
+    #         {
+    #         "msgtype": "text",
+    #         "text": {
+    #             "content": "配置CI/CD执行流出现错误, 可能最近提交配置有误或者服务器重启失败 可前往https://gitlab.1cent.xyz/Pool/middle/-/jobs查看详细报错原因",
+    #             "mention_list":["Joy","Judy","zhouzhen","renlixia","laishengyu","@all"],
+    #             }
+    #             }'
+    #     fi

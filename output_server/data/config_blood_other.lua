@@ -1,0 +1,21 @@
+return
+{
+[1] = {id=1,blood_explain={75,},blood_explain1={},},
+[2] = {id=2,blood_explain={30,},blood_explain1={},},
+[3] = {id=3,blood_explain={15,},blood_explain1={},},
+[4] = {id=4,blood_explain={0,},blood_explain1={},},
+[5] = {id=5,blood_explain={0,},blood_explain1={},},
+[6] = {id=6,blood_explain={6,6,6,6,6,10,},blood_explain1={},},
+[7] = {id=7,blood_explain={1,2,4,6,8,10,},blood_explain1={},},
+[8] = {id=8,blood_explain={5,6,7,8,9,10,11,12,},blood_explain1={},},
+[9] = {id=9,blood_explain={80,},blood_explain1={},},
+[10] = {id=10,blood_explain={5,6,7,8,9,10,11,12,},blood_explain1={},},
+[11] = {id=11,blood_explain={8,9,10,11,12,13,14,15,},blood_explain1={},},
+[12] = {id=12,blood_explain={2,},blood_explain1={},},
+[13] = {id=13,blood_explain={3,},blood_explain1={},},
+[14] = {id=14,blood_explain={8,9,10,11,12,13,14,15,},blood_explain1={},},
+[15] = {id=15,blood_explain={},blood_explain1={{1,10,},{2,25,},{3,30,},{4,25,},{5,10,},},},
+[16] = {id=16,blood_explain={},blood_explain1={{1,10,},{2,25,},{3,30,},{4,25,},{5,10,},},},
+[17] = {id=17,blood_explain={},blood_explain1={{1,10,},{2,25,},{3,30,},{4,25,},{5,10,},},},
+[18] = {id=18,blood_explain={},blood_explain1={{1,10,},{2,25,},{3,30,},{4,25,},{5,10,},},},
+}

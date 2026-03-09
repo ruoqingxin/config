@@ -1,0 +1,21 @@
+return
+{
+[10] = {id=10,guide_type=1,chapter_name=10010000,tap_sort=1,guide_chapter_reward={{id=1,num=1,},{id=2,num=100,},},reward_txt=10010002,},
+[11] = {id=11,guide_type=1,chapter_name=10011000,tap_sort=2,guide_chapter_reward={{id=1,num=1,},{id=2,num=101,},},reward_txt=10011002,},
+[12] = {id=12,guide_type=1,chapter_name=10012000,tap_sort=3,guide_chapter_reward={{id=1,num=1,},{id=2,num=102,},},reward_txt=10012002,},
+[13] = {id=13,guide_type=1,chapter_name=10013000,tap_sort=4,guide_chapter_reward={{id=1,num=1,},{id=2,num=103,},},reward_txt=10013002,},
+[20] = {id=20,guide_type=2,chapter_name=10020000,tap_sort=1,guide_chapter_reward={{id=1,num=1,},{id=2,num=104,},},reward_txt=10020002,},
+[21] = {id=21,guide_type=2,chapter_name=10021000,tap_sort=2,guide_chapter_reward={{id=1,num=1,},{id=2,num=105,},},reward_txt=10021002,},
+[22] = {id=22,guide_type=2,chapter_name=10022000,tap_sort=3,guide_chapter_reward={{id=1,num=1,},{id=2,num=106,},},reward_txt=10022002,},
+[23] = {id=23,guide_type=2,chapter_name=10023000,tap_sort=4,guide_chapter_reward={{id=1,num=1,},{id=2,num=107,},},reward_txt=10023002,},
+[24] = {id=24,guide_type=2,chapter_name=10024000,tap_sort=5,guide_chapter_reward={{id=1,num=1,},{id=2,num=108,},},reward_txt=10024002,},
+[30] = {id=30,guide_type=3,chapter_name=10030000,tap_sort=1,guide_chapter_reward={{id=1,num=1,},{id=2,num=109,},},reward_txt=10030002,},
+[31] = {id=31,guide_type=3,chapter_name=10031000,tap_sort=2,guide_chapter_reward={{id=1,num=1,},{id=2,num=110,},},reward_txt=10031002,},
+[32] = {id=32,guide_type=3,chapter_name=10032000,tap_sort=3,guide_chapter_reward={{id=1,num=1,},{id=2,num=111,},},reward_txt=10032002,},
+[33] = {id=33,guide_type=3,chapter_name=10033000,tap_sort=4,guide_chapter_reward={{id=1,num=1,},{id=2,num=112,},},reward_txt=10033002,},
+[40] = {id=40,guide_type=4,chapter_name=10040000,tap_sort=1,guide_chapter_reward={{id=1,num=1,},{id=2,num=113,},},reward_txt=10040002,},
+[41] = {id=41,guide_type=4,chapter_name=10041000,tap_sort=2,guide_chapter_reward={{id=1,num=1,},{id=2,num=114,},},reward_txt=10041002,},
+[42] = {id=42,guide_type=4,chapter_name=10042000,tap_sort=3,guide_chapter_reward={{id=1,num=1,},{id=2,num=115,},},reward_txt=10042002,},
+[43] = {id=43,guide_type=4,chapter_name=10043000,tap_sort=4,guide_chapter_reward={{id=1,num=1,},{id=2,num=116,},},reward_txt=10043002,},
+[44] = {id=44,guide_type=4,chapter_name=10044000,tap_sort=5,guide_chapter_reward={{id=1,num=1,},{id=2,num=117,},},reward_txt=10044002,},
+}

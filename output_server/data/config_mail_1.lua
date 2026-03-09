@@ -1,0 +1,20 @@
+return
+{
+[101] = {id=101,type=1,title=160011,title_ch="欢迎您，台球高手！",content=160012,content_ch="尊敬的台球高手：/n欢迎来到《台球高手》，在这里您可以和全国的台球高手们一起切磋球技、交朋友。祝您玩的开心，玩的愉快！小小礼物不成敬意，请笑纳！",reward={{id=2,num=666,},},},
+[102] = {id=102,type=1,title=160021,title_ch="恭喜升级！",content=160022,content_ch="尊敬的台球高手：/n欢迎来到《台球高手》，感谢您对本游戏的支持和热爱！/n恭喜你<color=#FF767A>升到2级</color>！继续升级可以解锁更多欢乐！/n祝您玩得开心！",reward={},},
+[103] = {id=103,type=1,title=160031,title_ch="球杆[@$@]已过期",content=160032,content_ch="尊敬的台球高手：/n温馨提示，您的球杆<color=#FF767A>[@$@]</color>使用时间已过期，请及时续费或直接购买永久。",reward={},},
+[104] = {id=104,type=1,title=160041,title_ch="球桌[@$@]已过期",content=160042,content_ch="尊敬的台球高手：/n温馨提示，您的球桌<color=#FF767A>[@$@]</color>使用时间已过期，请及时续费或直接购买永久。",reward={},},
+[105] = {id=105,type=1,title=160051,title_ch="服装[@$@]已过期",content=160052,content_ch="尊敬的台球高手：/n温馨提示，您的服装<color=#FF767A>[@$@]</color>使用时间已过期，请及时续费或直接购买永久。",reward={},},
+[106] = {id=106,type=1,title=160061,title_ch="极限挑战排名奖励",content=160062,content_ch="尊敬的台球高手：/n恭喜您在上一期极限挑战排行榜中勇夺第<color=#FF767A>[@$@]</color>名，请查收您的奖励。",reward={},},
+[107] = {id=107,type=1,title=160071,title_ch="周卡到期提醒",content=160072,content_ch="尊敬的台球高手：/n温馨提示，您的<color=#FF767A>[周卡福利]</color>已过期，为了您的游戏体验请及时续费。",reward={},},
+[108] = {id=108,type=1,title=160081,title_ch="月卡到期提醒",content=160082,content_ch="尊敬的台球高手：/n温馨提示，您的<color=#FF767A>[月卡福利]</color>已过期，为了您的游戏体验请及时续费。",reward={},},
+[109] = {id=109,type=1,title=160091,title_ch="订阅到期提醒",content=160092,content_ch="尊敬的台球高手：/n温馨提示，您的上期订阅已过期，<color=#FF767A>[订阅专属球杆及特权福利]</color>已收回，为了您的游戏体验请及时续费。",reward={},},
+[110] = {id=110,type=1,title=160101,title_ch="0元购钻石返还",content=160102,content_ch="尊敬的台球高手：/n您参与的0元购活动钻石已返还，请注意查收！",reward={},},
+[201] = {id=201,type=2,title=160121,title_ch="球友给您赠送了金币",content=160122,content_ch="尊敬的台球高手：/n您的球友<color=#FF767A>[@$@]</color>赠送了金币给您，快收下TA心意！",reward={{id=2,num=100,},},},
+[202] = {id=202,type=2,title=160131,title_ch="粉丝给您赠送了礼物",content=160132,content_ch="尊敬的台球高手：/n您的球友<color=#FF767A>[@$@]</color>赠送了礼物给您，快收下TA心意！",reward={},},
+[301] = {id=301,type=3,title=160141,title_ch="欢迎加入<color=#FF767A>[@$@]</color>俱乐部",content=160142,content_ch="尊敬的台球高手：/n您已成功加入<color=#FF767A>[@$@]</color>俱乐部",reward={},},
+[302] = {id=302,type=3,title=160151,title_ch="离开<color=#FF767A>[@$@]</color>俱乐部",content=160152,content_ch="尊敬的台球高手：/n您已离开<color=#FF767A>[@$@]</color>俱乐部",reward={},},
+[303] = {id=303,type=3,title=160161,title_ch="红包过期返还",content=160162,content_ch="尊敬的台球高手：/n您的红包在24小时内未领完，剩余金币已返还，请注意查收！",reward={},},
+[304] = {id=304,type=1,title=160661,title_ch="回归活动奖励补发",content=160662,content_ch="尊敬的台球高手：/n本期回归活动已结束，您有部分奖励未领取，我们特为您补发漏领的奖励，请注意查收！",reward={},},
+[401] = {id=401,type=1,title=160671,title_ch="会员时长转换提示",content=160672,content_ch="尊敬的台球高手：/n您的好友<color=#FF767A>[@$@]</color>赠送给您的会员时长已自动为您转换，具体转换规则请前往会员界面查看！",reward={},},
+}

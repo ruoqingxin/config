@@ -1,0 +1,16 @@
+return
+{
+[2001] = {id=2001,charge_id=0,reward={{1,1078,},{100011,1,},},cue_attribute={526,490,41,6000,},attribute={810,810,110,30000,},price=98,background="ui_banner_dyh",banner="ui_lbt_2",bar="ui_dyh_jdt_1",bar_main="ui_dyh_jdt_2",color="#EDD595",},
+[2002] = {id=2002,charge_id=0,reward={{1,1078,},{100011,1,},},cue_attribute={526,490,41,6000,},attribute={810,810,110,30000,},price=98,background="ui_banner_dyh",banner="ui_lbt_2",bar="ui_dyh_jdt_1",bar_main="ui_dyh_jdt_2",color="#EDD595",},
+[2003] = {id=2003,charge_id=0,reward={{1,1078,},{100771,1,},},cue_attribute={475,519,46,6000,},attribute={810,810,110,30000,},price=98,background="ui_banner_ccxk",banner="ui_lbt_7",bar="ui_ccxk_jdt_1",bar_main="ui_ccxk_jdt_2",color="#69211D",},
+[2004] = {id=2004,charge_id=0,reward={{1,1078,},{100681,1,},},cue_attribute={518,482,45,6000,},attribute={810,810,110,30000,},price=98,background="ui_banner_qcbs",banner="ui_lbt_13",bar="ui_ccxk_jdt_1",bar_main="ui_ccxk_jdt_2",color="#69211D",},
+[2005] = {id=2005,charge_id=0,reward={{1,980,},{100661,1,},},cue_attribute={489,517,46,6000,},attribute={810,810,110,30000,},price=98,background="ui_banner_ccxk_llbc",banner="ui_lbt_16",bar="ui_ccxk_jdt_1",bar_main="ui_ccxk_jdt_2",color="#69211D",},
+[2006] = {id=2006,charge_id=147,reward={{1,980,},{100671,1,},},cue_attribute={490,520,48,6000,},attribute={810,810,110,30000,},price=98,background="ui_banner_crhy",banner="ui_lbt_22",bar="ui_ccxk_jdt_1",bar_main="ui_ccxk_jdt_2",color="#69211D",},
+[2007] = {id=2007,charge_id=2057,reward={{1,980,},{100691,1,},},cue_attribute={523,482,44,6000,},attribute={810,810,110,30000,},price=98,background="ui_banner_ccxk_qhc",banner="ui_lbt_28",bar="ui_qhc_jdt_1",bar_main="ui_ccxk_jdt_2",color="#69211D",},
+[2008] = {id=2008,charge_id=2061,reward={{1,980,},{100661,1,},},cue_attribute={489,517,46,6000,},attribute={810,810,110,30000,},price=98,background="ui_banner_ccxk_llbc",banner="ui_lbt_16",bar="ui_ccxk_jdt_1",bar_main="ui_ccxk_jdt_2",color="#69211D",},
+[2009] = {id=2009,charge_id=2083,reward={{1,980,},{100681,1,},},cue_attribute={518,482,45,6000,},attribute={810,810,110,30000,},price=98,background="ui_banner_qcbs",banner="ui_lbt_47",bar="ui_ccxk_jdt_1",bar_main="ui_ccxk_jdt_2",color="#69211D",},
+[2010] = {id=2010,charge_id=147,reward={{1,980,},{100671,1,},},cue_attribute={490,520,48,6000,},attribute={810,810,110,30000,},price=98,background="ui_banner_crhy",banner="ui_lbt_59",bar="ui_ccxk_jdt_1",bar_main="ui_ccxk_jdt_2",color="#69211D",},
+[2011] = {id=2011,charge_id=2061,reward={{1,980,},{100661,1,},},cue_attribute={489,517,46,6000,},attribute={810,810,110,30000,},price=98,background="ui_banner_ccxk_llbc",banner="ui_lbt_66",bar="ui_ccxk_jdt_1",bar_main="ui_ccxk_jdt_2",color="#69211D",},
+[2012] = {id=2012,charge_id=2083,reward={{1,980,},{100681,1,},},cue_attribute={518,482,45,6000,},attribute={810,810,110,30000,},price=98,background="ui_banner_qcbs",banner="ui_lbt_47",bar="ui_ccxk_jdt_1",bar_main="ui_ccxk_jdt_2",color="#69211D",},
+[2013] = {id=2013,charge_id=147,reward={{1,980,},{100671,1,},},cue_attribute={490,520,48,6000,},attribute={810,810,110,30000,},price=98,background="ui_banner_crhy",banner="ui_lbt_59",bar="ui_ccxk_jdt_1",bar_main="ui_ccxk_jdt_2",color="#69211D",},
+}

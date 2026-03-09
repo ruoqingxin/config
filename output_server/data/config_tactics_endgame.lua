@@ -1,0 +1,23 @@
+return
+{
+[1] = {id=1,endgame_tab2_id=1001,code="4k4/3P1P3/4P4/9/9/9/9/4p4/3p1p3/4K4 w",sort=0,name=33009,},
+[2] = {id=2,endgame_tab2_id=1001,code="3k5/4RR3/9/9/9/9/9/9/3r1p3/4K4 w",sort=0,name=33009,},
+[3] = {id=3,endgame_tab2_id=1001,code="3k5/9/5N3/9/1N7/9/1n7/6n2/9/4K4 w",sort=0,name=33009,},
+[4] = {id=4,endgame_tab2_id=1001,code="4k4/3P1P3/4P4/9/9/9/9/4p4/3p1p3/4K4 w",sort=0,name=33009,},
+[5] = {id=5,endgame_tab2_id=1001,code="3k5/4RR3/9/9/9/9/9/9/3r1p3/4K4 w",sort=0,name=33009,},
+[6] = {id=6,endgame_tab2_id=1002,code="3k5/9/5N3/9/1N7/9/1n7/6n2/9/4K4 w",sort=0,name=33009,},
+[7] = {id=7,endgame_tab2_id=1002,code="4k4/3P1P3/4P4/9/9/9/9/4p4/3p1p3/4K4 w",sort=0,name=33009,},
+[8] = {id=8,endgame_tab2_id=1002,code="3k5/4RR3/9/9/9/9/9/9/3r1p3/4K4 w",sort=0,name=33009,},
+[9] = {id=9,endgame_tab2_id=1002,code="3k5/9/5N3/9/1N7/9/1n7/6n2/9/4K4 w",sort=0,name=33009,},
+[10] = {id=10,endgame_tab2_id=1002,code="3k5/9/5N3/9/1N7/9/1n7/6n2/9/4K4 w",sort=0,name=33009,},
+[11] = {id=11,endgame_tab2_id=1003,code="3k5/4RR3/9/9/9/9/9/9/3r1p3/4K4 w",sort=0,name=33009,},
+[12] = {id=12,endgame_tab2_id=1003,code="3k5/9/5N3/9/1N7/9/1n7/6n2/9/4K4 w",sort=0,name=33009,},
+[13] = {id=13,endgame_tab2_id=1003,code="4k4/3P1P3/4P4/9/9/9/9/4p4/3p1p3/4K4 w",sort=0,name=33009,},
+[14] = {id=14,endgame_tab2_id=1003,code="3k5/4RR3/9/9/9/9/9/9/3r1p3/4K4 w",sort=0,name=33009,},
+[15] = {id=15,endgame_tab2_id=1003,code="3k5/9/5N3/9/1N7/9/1n7/6n2/9/4K4 w",sort=0,name=33009,},
+[16] = {id=16,endgame_tab2_id=1004,code="4k4/3P1P3/4P4/9/9/9/9/4p4/3p1p3/4K4 w",sort=0,name=33009,},
+[17] = {id=17,endgame_tab2_id=1004,code="3k5/4RR3/9/9/9/9/9/9/3r1p3/4K4 w",sort=0,name=33009,},
+[18] = {id=18,endgame_tab2_id=1004,code="3k5/9/5N3/9/1N7/9/1n7/6n2/9/4K4 w",sort=0,name=33009,},
+[19] = {id=19,endgame_tab2_id=1004,code="3k5/9/5N3/9/1N7/9/1n7/6n2/9/4K4 w",sort=0,name=33009,},
+[20] = {id=20,endgame_tab2_id=1004,code="3k5/9/5N3/9/1N7/9/1n7/6n2/9/4K4 w",sort=0,name=33009,},
+}

@@ -1,0 +1,21 @@
+return
+{
+[1001] = {id=1001,type_task=1,explain={1,},reward1=0,reward2=250,name_task=10010011,link=2,daily_week=1,task_mark=0,sort=1,},
+[1002] = {id=1002,type_task=1,explain={2,},reward1=0,reward2=250,name_task=10010021,link=2,daily_week=1,task_mark=0,sort=2,},
+[1003] = {id=1003,type_task=1,explain={3,},reward1=0,reward2=250,name_task=10010031,link=2,daily_week=1,task_mark=0,sort=3,},
+[1004] = {id=1004,type_task=1,explain={4,},reward1=0,reward2=250,name_task=10010041,link=2,daily_week=1,task_mark=0,sort=4,},
+[1005] = {id=1005,type_task=1,explain={5,},reward1=0,reward2=250,name_task=10010051,link=2,daily_week=1,task_mark=0,sort=5,},
+[1006] = {id=1006,type_task=1,explain={6,},reward1=0,reward2=250,name_task=10010061,link=2,daily_week=1,task_mark=0,sort=6,},
+[1007] = {id=1007,type_task=1,explain={7,},reward1=0,reward2=250,name_task=10010071,link=2,daily_week=1,task_mark=0,sort=7,},
+[1008] = {id=1008,type_task=1,explain={8,},reward1=0,reward2=250,name_task=10010081,link=2,daily_week=1,task_mark=0,sort=8,},
+[1009] = {id=1009,type_task=1,explain={9,},reward1=0,reward2=250,name_task=10010091,link=2,daily_week=1,task_mark=0,sort=9,},
+[1010] = {id=1010,type_task=1,explain={10,},reward1=0,reward2=250,name_task=10010101,link=2,daily_week=1,task_mark=0,sort=10,},
+[1011] = {id=1011,type_task=1,explain={11,},reward1=0,reward2=250,name_task=10010111,link=2,daily_week=1,task_mark=0,sort=11,},
+[1012] = {id=1012,type_task=1,explain={12,},reward1=0,reward2=250,name_task=10010121,link=2,daily_week=1,task_mark=0,sort=12,},
+[1013] = {id=1013,type_task=1,explain={13,},reward1=0,reward2=500,name_task=10010131,link=2,daily_week=1,task_mark=1,sort=13,},
+[1014] = {id=1014,type_task=1,explain={14,},reward1=0,reward2=500,name_task=10010141,link=2,daily_week=1,task_mark=1,sort=14,},
+[1015] = {id=1015,type_task=1,explain={15,},reward1=0,reward2=500,name_task=10010151,link=2,daily_week=1,task_mark=1,sort=15,},
+[1016] = {id=1016,type_task=1,explain={16,},reward1=0,reward2=500,name_task=10010161,link=2,daily_week=1,task_mark=1,sort=16,},
+[1017] = {id=1017,type_task=1,explain={17,},reward1=0,reward2=500,name_task=10010171,link=2,daily_week=1,task_mark=1,sort=17,},
+[1018] = {id=1018,type_task=1,explain={18,},reward1=0,reward2=250,name_task=10010181,link=2,daily_week=1,task_mark=1,sort=18,},
+}

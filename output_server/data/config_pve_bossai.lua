@@ -1,0 +1,21 @@
+return
+{
+[1] = {boss_id=1,nick="潘小婷",head_icon=820001,head_frame=810001,cue_id=100023,table_id=300006,power_level=0,},
+[2] = {boss_id=2,nick="丁小辉",head_icon=820002,head_frame=810001,cue_id=100023,table_id=300004,power_level=100,},
+[3] = {boss_id=3,nick="史蒂芬",head_icon=820003,head_frame=810001,cue_id=100023,table_id=300007,power_level=100,},
+[4] = {boss_id=4,nick="马克",head_icon=820004,head_frame=810001,cue_id=100023,table_id=300008,power_level=100,},
+[5] = {boss_id=5,nick="杰克",head_icon=820005,head_frame=810001,cue_id=100023,table_id=300009,power_level=100,},
+[6] = {boss_id=6,nick="颜小韬",head_icon=820006,head_frame=810001,cue_id=100023,table_id=300007,power_level=100,},
+[7] = {boss_id=7,nick="傅小俊",head_icon=820007,head_frame=810001,cue_id=100023,table_id=300008,power_level=100,},
+[8] = {boss_id=8,nick="梁小博",head_icon=820008,head_frame=810001,cue_id=100023,table_id=300009,power_level=100,},
+[9] = {boss_id=9,nick="史蒂夫",head_icon=820009,head_frame=810001,cue_id=100023,table_id=300007,power_level=100,},
+[10] = {boss_id=10,nick="车小兰",head_icon=820010,head_frame=810001,cue_id=100023,table_id=300008,power_level=100,},
+[11] = {boss_id=11,nick="詹姆斯",head_icon=820011,head_frame=810001,cue_id=100023,table_id=300009,power_level=100,},
+[12] = {boss_id=12,nick="罗小逊",head_icon=820012,head_frame=810001,cue_id=100023,table_id=300007,power_level=100,},
+[13] = {boss_id=13,nick="希小斯",head_icon=820013,head_frame=810001,cue_id=100023,table_id=300008,power_level=100,},
+[14] = {boss_id=14,nick="鲨鱼利文",head_icon=820014,head_frame=810001,cue_id=100023,table_id=300009,power_level=100,},
+[15] = {boss_id=15,nick="洋哥",head_icon=820015,head_frame=810001,cue_id=100023,table_id=300009,power_level=100,},
+[16] = {boss_id=16,nick="大卫",head_icon=820016,head_frame=810001,cue_id=100023,table_id=300009,power_level=100,},
+[17] = {boss_id=17,nick="玛蒂",head_icon=820017,head_frame=810001,cue_id=100023,table_id=300019,power_level=100,},
+[18] = {boss_id=18,nick="林小雨",head_icon=820018,head_frame=810001,cue_id=100023,table_id=300015,power_level=100,},
+}

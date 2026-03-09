@@ -1,0 +1,14 @@
+return
+{
+[1] = {id=1,battleShow=2,prize1="2",prize2="1000001",prize3="12",prize4=0,prize1num="1900,3200",prize2num="1,1",prize3num="50,50",prize4num="0",noadPrize=2,noadPrizeNum="100,100",prize2odd=100,prize3odd=100,prize4odd=0,},
+[2] = {id=2,battleShow=102,prize1="2",prize2="1000001",prize3="12",prize4=0,prize1num="1900,3200",prize2num="1,1",prize3num="50,50",prize4num="0",noadPrize=2,noadPrizeNum="100,100",prize2odd=100,prize3odd=100,prize4odd=0,},
+[3] = {id=3,battleShow=4,prize1="2",prize2="1000001",prize3="12",prize4=0,prize1num="1900,3200",prize2num="1,1",prize3num="50,50",prize4num="0",noadPrize=2,noadPrizeNum="100,100",prize2odd=100,prize3odd=100,prize4odd=0,},
+[4] = {id=4,battleShow=103,prize1="2",prize2="1000001",prize3="12",prize4=0,prize1num="1900,3200",prize2num="1,1",prize3num="50,50",prize4num="0",noadPrize=2,noadPrizeNum="100,100",prize2odd=100,prize3odd=100,prize4odd=0,},
+[5] = {id=5,battleShow=6,prize1="2",prize2="1000001",prize3="850001,850002,850003,850004,850006,860001,860002,860003,860004,860005,860006",prize4=0,prize1num="1900,3200",prize2num="1,1",prize3num="50,50",prize4num="0",noadPrize=13,noadPrizeNum="1,1",prize2odd=50,prize3odd=50,prize4odd=0,},
+[6] = {id=6,battleShow=104,prize1="2",prize2="1000001",prize3="850001,850002,850003,850004,850006,860001,860002,860003,860004,860005,860006",prize4=0,prize1num="1900,3200",prize2num="1,1",prize3num="50,50",prize4num="0",noadPrize=13,noadPrizeNum="1,1",prize2odd=50,prize3odd=50,prize4odd=0,},
+[7] = {id=7,battleShow=8,prize1="2",prize2="1000001",prize3="850001,850002,850003,850004,850006,860001,860002,860003,860004,860005,860006",prize4=0,prize1num="1900,3200",prize2num="1,1",prize3num="50,50",prize4num="0",noadPrize=13,noadPrizeNum="1,1",prize2odd=50,prize3odd=50,prize4odd=0,},
+[8] = {id=8,battleShow=105,prize1="2",prize2="1000001",prize3="850001,850002,850003,850004,850006,860001,860002,860003,860004,860005,860006",prize4=0,prize1num="1900,3200",prize2num="1,1",prize3num="50,50",prize4num="0",noadPrize=13,noadPrizeNum="1,1",prize2odd=50,prize3odd=50,prize4odd=0,},
+[9] = {id=9,battleShow=10,prize1="2",prize2="1000001",prize3="850001,850002,850003,850004,850006,860001,860002,860003,860004,860005,860006",prize4=0,prize1num="1900,3200",prize2num="1,1",prize3num="50,50",prize4num="0",noadPrize=13,noadPrizeNum="1,1",prize2odd=50,prize3odd=50,prize4odd=0,},
+[10] = {id=10,battleShow=106,prize1="2",prize2="1000001",prize3="850001,850002,850003,850004,850006,860001,860002,860003,860004,860005,860006",prize4=0,prize1num="1900,3200",prize2num="1,1",prize3num="50,50",prize4num="0",noadPrize=13,noadPrizeNum="1,1",prize2odd=50,prize3odd=50,prize4odd=0,},
+[11] = {id=11,battleShow=3,prize1="2",prize2="1000001",prize3="12",prize4=0,prize1num="1900,3200",prize2num="1,1",prize3num="50,50",prize4num="0",noadPrize=2,noadPrizeNum="100,100",prize2odd=100,prize3odd=100,prize4odd=0,},
+}
