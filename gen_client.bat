@@ -2,7 +2,7 @@ set WORKSPACE=.
 
 set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll
 set CONF_ROOT=%WORKSPACE%\DataTables
-set CLIENT_ROOT=%WORKSPACE%\..\client
+set CLIENT_ROOT=%WORKSPACE%\..\ItemChangeWorld
 
 dotnet %LUBAN_DLL% ^
     -t client ^
