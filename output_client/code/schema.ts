@@ -242,7 +242,9 @@ export class IitemConfig {
         this.item_id = _buf_.ReadInt()
         this.item_type = _buf_.ReadInt()
         this.sub_type = _buf_.ReadInt()
-        this.index = _buf_.ReadInt()
+        this.quality = _buf_.ReadInt()
+        this.icon = _buf_.ReadString()
+        this.bag_size = _buf_.ReadInt()
     }
 
     /**
@@ -257,10 +259,23 @@ export class IitemConfig {
      * 细分类型
      */
     readonly sub_type: ESubType
-    readonly index: number
+    /**
+     * 品质
+     */
+    readonly quality: number
+    /**
+     * 图片
+     */
+    readonly icon: string
+    /**
+     * 物品占据格子
+     */
+    readonly bag_size: number
 
 /*
     resolve(tables:Tables) {
+        
+        
         
         
         
