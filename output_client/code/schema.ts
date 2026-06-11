@@ -11,7 +11,281 @@
 import ByteBuf from './bright/serialization/ByteBuf'
 
  
+export enum EBlockClearTiming {
+    /**
+     * 无
+     */
+    none = 0,
+    /**
+     * 自己回合开始清空
+     */
+    owner_turn_start = 1,
+    /**
+     * 当前行动回合结束清空
+     */
+    turn_end = 2,
+    /**
+     * 一整轮结束清空
+     */
+    round_end = 3,
+    /**
+     * 不自动清空
+     */
+    never = 4,
+}
+
+ 
+ 
+export enum ECardType {
+    /**
+     * 无
+     */
+    none = 0,
+    /**
+     * 攻击牌
+     */
+    attack = 1,
+    /**
+     * 防御牌
+     */
+    defense = 2,
+    /**
+     * 技能牌
+     */
+    skill = 3,
+    /**
+     * 功法牌
+     */
+    gongfa = 4,
+    /**
+     * 消耗牌
+     */
+    consumable = 5,
+    /**
+     * 状态牌
+     */
+    status = 6,
+    /**
+     * 诅咒牌
+     */
+    curse = 7,
+    /**
+     * 临时牌
+     */
+    temp = 8,
+}
+
+ 
+ 
+export enum EDeckType {
+    /**
+     * 无
+     */
+    none = 0,
+    /**
+     * 武器基础牌组
+     */
+    weapon_basic = 1,
+    /**
+     * 功法牌组
+     */
+    gongfa = 2,
+    /**
+     * 消耗品牌组
+     */
+    consumable = 3,
+    /**
+     * 事件临时牌组
+     */
+    event = 4,
+    /**
+     * 测试牌组
+     */
+    debug = 5,
+    /**
+     * 混合牌组
+     */
+    mixed = 6,
+}
+
+ 
+ 
+export enum EEffectOwnerType {
+    /**
+     * 无
+     */
+    none = 0,
+    /**
+     * 卡牌
+     */
+    card = 1,
+    /**
+     * 敌人意图
+     */
+    enemy_intent = 2,
+    /**
+     * 状态
+     */
+    status = 3,
+    /**
+     * 物品
+     */
+    item = 4,
+    /**
+     * 事件
+     */
+    event = 5,
+    /**
+     * 附魔
+     */
+    enchant = 6,
+    /**
+     * 功法
+     */
+    gongfa = 7,
+    /**
+     * 战斗规则
+     */
+    battle_rule = 8,
+}
+
+ 
+ 
+export enum EEffectTarget {
+    /**
+     * 无
+     */
+    none = 0,
+    /**
+     * 效果来源自己
+     */
+    self = 1,
+    /**
+     * 玩家
+     */
+    player = 2,
+    /**
+     * 选择的敌人
+     */
+    selected_enemy = 3,
+    /**
+     * 所有敌人
+     */
+    all_enemies = 4,
+    /**
+     * 随机敌人
+     */
+    random_enemy = 5,
+    /**
+     * 全体单位
+     */
+    all = 6,
+    /**
+     * 效果来源
+     */
+    source = 7,
+    /**
+     * 当前目标
+     */
+    target = 8,
+}
+
+ 
+ 
+export enum EEffectType {
+    /**
+     * 无
+     */
+    none = 0,
+    /**
+     * 造成伤害
+     */
+    damage = 1,
+    /**
+     * 获得护盾
+     */
+    gain_block = 2,
+    /**
+     * 施加状态
+     */
+    apply_status = 3,
+    /**
+     * 抽牌
+     */
+    draw_card = 4,
+    /**
+     * 获得行动点
+     */
+    gain_ap = 5,
+    /**
+     * 恢复/获得灵力
+     */
+    gain_mp = 6,
+    /**
+     * 治疗
+     */
+    heal = 7,
+    /**
+     * 失去生命，不受护盾影响
+     */
+    lose_hp = 8,
+    /**
+     * 添加卡牌
+     */
+    add_card = 9,
+    /**
+     * 消耗卡牌
+     */
+    exhaust_card = 10,
+    /**
+     * 弃牌
+     */
+    discard_card = 11,
+    /**
+     * 修改伤害
+     */
+    modify_damage = 12,
+    /**
+     * 清除状态
+     */
+    clear_status = 13,
+}
+
+ 
+ 
+export enum EElement {
+    /**
+     * 无属性
+     */
+    none = 0,
+    /**
+     * 金
+     */
+    metal = 1,
+    /**
+     * 木
+     */
+    wood = 2,
+    /**
+     * 水
+     */
+    water = 3,
+    /**
+     * 火
+     */
+    fire = 4,
+    /**
+     * 土
+     */
+    earth = 5,
+}
+
+ 
+ 
 export enum EFuncID {
+    /**
+     *  无
+     */
     none = 0,
     /**
      * 拍脸推送图
@@ -21,10 +295,6 @@ export enum EFuncID {
      * 商城
      */
     shop = 101001,
-    /**
-     * 商城购买
-     */
-    shopbuy = 1010012,
     /**
      * 背包
      */
@@ -37,166 +307,445 @@ export enum EFuncID {
 
  
  
+export enum EIntentType {
+    /**
+     * 无
+     */
+    none = 0,
+    /**
+     * 攻击
+     */
+    attack = 1,
+    /**
+     * 防御
+     */
+    defend = 2,
+    /**
+     * 增益
+     */
+    buff = 3,
+    /**
+     * 减益
+     */
+    debuff = 4,
+    /**
+     * 攻击并减益
+     */
+    attack_debuff = 5,
+    /**
+     * 蓄力
+     */
+    charge = 6,
+    /**
+     * 特殊行动
+     */
+    special = 7,
+    /**
+     * 逃跑
+     */
+    escape = 8,
+    /**
+     * 召唤
+     */
+    summon = 9,
+}
+
+ 
+ 
 export enum EMainType {
     /**
-     * 货币
+     * 无
      */
-    currency = 0,
+    none = 0,
     /**
-     * 头盔、护甲、背包、武器
+     * 装备
      */
     equipment = 1,
     /**
-     * 可在局内战斗中直接使用或消耗的物品
+     * 消耗品
      */
-    battle_consumable = 2,
+    consumable = 2,
     /**
-     * 通过探索、搜索获得的基础或稀有材料
+     * 材料
      */
-    search_material = 3,
+    material = 3,
     /**
-     * 高价值撤离物、可出售战利品
+     * 宝物/贵重物
      */
-    valuable_loot = 4,
+    treasure = 4,
     /**
-     * 钥匙、通行证、任务道具等功能型物品
+     * 任务/特殊物
      */
-    functional_item = 5,
+    quest = 5,
+    /**
+     * 货币
+     */
+    currency = 6,
+    /**
+     * 杂物
+     */
+    misc = 7,
 }
 
  
  
 export enum EQuality {
     /**
-     * 状态较差的低品质物品，通常属性偏低，出售价值低
+     *  无
      */
-    broken = 1,
+    none = 0,
     /**
-     * 最基础的常见品质，适合前期或基础产出
+     * 普通
      */
-    common = 2,
+    normal = 1,
     /**
-     * 略高于普通，属性和价值有小幅提升
+     * 优秀
      */
-    uncommon = 3,
+    excellent = 2,
     /**
-     * 中期常见的高于平均水平品质
+     * 精良
+     */
+    fine = 3,
+    /**
+     * 稀有
      */
     rare = 4,
     /**
-     * 获取难度较高，价值和属性明显提升
+     * 史诗
      */
     epic = 5,
     /**
-     * 高级品质，通常来自高风险区域或高阶来源
+     * 传说
      */
     legendary = 6,
+}
+
+ 
+ 
+export enum EScenarioType {
     /**
-     * 顶级品质，极低概率或特殊玩法产出
+     * 无
      */
-    mythic = 7,
+    none = 0,
+    /**
+     * Debug 测试战斗
+     */
+    debug = 1,
+    /**
+     * 普通战斗
+     */
+    normal = 2,
+    /**
+     * 精英战斗
+     */
+    elite = 3,
+    /**
+     * Boss 战斗
+     */
+    boss = 4,
+    /**
+     * 事件战斗
+     */
+    event = 5,
+    /**
+     * 教学战斗
+     */
+    tutoria = 6,
+}
+
+ 
+ 
+export enum EStatusType {
+    /**
+     *  无
+     */
+    none = 0,
+    /**
+     * 增益
+     */
+    buff = 1,
+    /**
+     * 减益
+     */
+    debuff = 2,
+    /**
+     * 持续伤害
+     */
+    dot = 3,
+    /**
+     * 控制
+     */
+    control = 4,
+    /**
+     * 特殊
+     */
+    special = 5,
 }
 
  
  
 export enum ESubType {
     /**
-     * 装备-头盔
+     * 装备-无
      */
-    helmet = 101,
+    equipment_none = 100,
     /**
-     * 装备-护甲
+     * 长剑/铁剑
      */
-    armor = 102,
+    weapon_sword = 101,
     /**
-     * 装备-背包
+     * 短刃/匕首
      */
-    backpack = 103,
+    weapon_dagger = 102,
     /**
-     * 装备-匕首类武器
+     * 大刀
      */
-    weapon_dagger = 104,
+    weapon_blade = 103,
     /**
-     * 装备-手枪类武器
+     * 法杖
      */
-    weapon_pistol = 105,
+    weapon_staff = 104,
     /**
-     * 装备-步枪类武器
+     * 头部防具
      */
-    weapon_rifle = 106,
+    armor_head = 105,
     /**
-     * 装备-重型武器
+     * 身体防具
      */
-    weapon_heavy = 107,
+    armor_body = 106,
     /**
-     * 战斗消耗-回血类道具
+     * 储物袋/背包
      */
-    healing_item = 201,
+    bag = 107,
     /**
-     * 战斗消耗-护甲修复类
+     * 饰品
      */
-    armor_repair = 202,
+    accessory = 108,
     /**
-     * 战斗消耗-武器修理类
+     * 其他武器
      */
-    weapon_repair = 203,
+    weapon_other = 109,
     /**
-     * 战斗消耗-武器附魔材料
+     * 消耗品-无
      */
-    elemental_stone = 204,
+    consumable_none = 200,
     /**
-     * 战斗消耗-投掷类道具
+     * 丹药
      */
-    throwable = 205,
+    pill = 201,
     /**
-     * 常见搜索材料
+     * 五行属性石
      */
-    common_material = 301,
+    element_stone = 202,
     /**
-     * 稀有搜索材料
+     * 符箓
      */
-    rare_material = 302,
+    talisman = 203,
     /**
-     * 用于制造、升级、合成
+     * 药剂/补给
      */
-    crafting_material = 303,
+    medicine = 204,
     /**
-     * 贵重品-宝石珠宝类
+     * 食物
      */
-    gemstone = 401,
+    food = 205,
     /**
-     * 贵重品-古代文物/古币类
+     * 修理道具
      */
-    antique = 402,
+    repair_tool = 206,
     /**
-     * 贵重品-数据、情报、芯片类
+     * 一次性卷轴
      */
-    intel_item = 403,
+    scroll_consumable = 207,
     /**
-     * 功能物-钥匙、门禁卡、撤离通行证
+     * 材料-无
      */
-    key_item = 501,
+    material_none = 300,
+    /**
+     * 灵草
+     */
+    herb = 301,
+    /**
+     * 灵果
+     */
+    spirit_fruit = 302,
+    /**
+     * 矿石/灵矿
+     */
+    ore = 303,
+    /**
+     * 妖丹/妖兽材料
+     */
+    monster_core = 304,
+    /**
+     * 炼丹辅材
+     */
+    alchemy_material = 305,
+    /**
+     * 突破材料
+     */
+    breakthrough_material = 306,
+    /**
+     * 药渣
+     */
+    residue = 307,
+    /**
+     * 灵木/藤蔓
+     */
+    wood_material = 308,
+    /**
+     * 灵铁/金属
+     */
+    metal_material = 309,
+    /**
+     * 宝物-无
+     */
+    treasure_none = 400,
+    /**
+     * 功法残卷
+     */
+    gongfa_fragment = 401,
+    /**
+     * 玉简
+     */
+    jade_slip = 402,
+    /**
+     * 丹方碎片
+     */
+    recipe_fragment = 403,
+    /**
+     * 法宝碎片
+     */
+    artifact_fragment = 404,
+    /**
+     * 古宗信物
+     */
+    ancient_token = 405,
+    /**
+     * 稀有天材地宝
+     */
+    rare_treasure = 406,
+    /**
+     * 传承物
+     */
+    inheritance_item = 407,
+    /**
+     * 特殊-无
+     */
+    quest_none = 500,
+    /**
+     * 钥匙
+     */
+    key = 501,
+    /**
+     * 通行令
+     */
+    pass = 502,
+    /**
+     * 阵旗
+     */
+    array_flag = 503,
+    /**
+     * 阵盘/阵核
+     */
+    array_core = 504,
+    /**
+     * 任务信物
+     */
+    quest_token = 505,
+    /**
+     * 地图碎片
+     */
+    map_fragment = 506,
+    /**
+     * 事件物品
+     */
+    event_item = 507,
+    /**
+     * 货币-无
+     */
+    currency_none = 600,
+    /**
+     * 劣品灵石
+     */
+    spirit_stone_low = 601,
+    /**
+     * 下品灵石
+     */
+    spirit_stone_normal = 602,
+    /**
+     * 中品灵石
+     */
+    spirit_stone_mid = 603,
+    /**
+     * 上品灵石
+     */
+    spirit_stone_high = 604,
+    /**
+     * 极品灵石
+     */
+    spirit_stone_top = 605,
+    /**
+     * 宗门贡献
+     */
+    sect_contribution = 606,
+    /**
+     * 黑市筹码
+     */
+    black_market_token = 607,
+    /**
+     * 杂物-无
+     */
+    misc_none = 700,
+    /**
+     * 杂物
+     */
+    junk = 701,
+    /**
+     * 售卖品
+     */
+    sell_only = 702,
+    /**
+     * 可分解物
+     */
+    dismantle = 703,
+    /**
+     * 文献/见闻
+     */
+    lore = 704,
+    /**
+     * 残骸/骸骨
+     */
+    corpse_part = 705,
 }
 
  
  
-export enum ETargetType {
+export enum EWeaponType {
     /**
-     * 被动物品或不可直接点击使用
+     * 无
      */
     none = 0,
     /**
-     * 对玩家自己使用
+     * 长剑/铁剑
      */
-    self = 1,
+    sword = 1,
     /**
-     * 对敌方目标使用
+     * 短刃/匕首
      */
-    enemy = 2,
+    dagger = 2,
     /**
-     * 对场景、机关、撤离点等使用
+     * 大刀
      */
-    scene = 3,
+    blade = 3,
+    /**
+     * 法杖
+     */
+    staff = 4,
+    /**
+     * 其他武器
+     */
+    other = 99,
 }
 
  
