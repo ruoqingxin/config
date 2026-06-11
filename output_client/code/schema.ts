@@ -242,13 +242,21 @@ export enum EEffectType {
      */
     discard_card = 11,
     /**
-     * 修改伤害
-     */
-    modify_damage = 12,
-    /**
      * 清除状态
      */
-    clear_status = 13,
+    clear_status = 12,
+    /**
+     * 修改受到伤害
+     */
+    modify_damage_taken = 13,
+    /**
+     * 修改造成伤害
+     */
+    modify_damage_dealt = 14,
+    /**
+     * 跳过行动
+     */
+    skip_action = 15,
 }
 
  
@@ -450,7 +458,131 @@ export enum EScenarioType {
     /**
      * 教学战斗
      */
-    tutoria = 6,
+    tutorial = 6,
+}
+
+ 
+ 
+export enum EStatusEffectMode {
+    /**
+     *  无
+     */
+    none = 0,
+    /**
+     * 固定值
+     */
+    fixed = 1,
+    /**
+     * 按层数计算
+     */
+    per_stack = 2,
+    /**
+     * 百分比
+     */
+    percent = 3,
+    /**
+     * 标记型
+     */
+    flag = 4,
+}
+
+ 
+ 
+export enum EStatusRemoveTiming {
+    /**
+     *  无
+     */
+    none = 0,
+    /**
+     * 结算后减少
+     */
+    after_tick = 1,
+    /**
+     * 回合结束减少
+     */
+    turn_end = 2,
+    /**
+     * 攻击后减少
+     */
+    after_attack = 3,
+    /**
+     * 受伤后减少
+     */
+    after_damaged = 4,
+    /**
+     * 战斗结束移除
+     */
+    battle_end = 5,
+    /**
+     * 手动移除
+     */
+    manual = 6,
+}
+
+ 
+ 
+export enum EStatusStackRule {
+    /**
+     * 无
+     */
+    none = 0,
+    /**
+     * 层数叠加
+     */
+    stack = 1,
+    /**
+     * 刷新持续时间
+     */
+    refresh = 2,
+    /**
+     * 替换
+     */
+    replace = 3,
+    /**
+     * 取较大值
+     */
+    max_only = 4,
+}
+
+ 
+ 
+export enum EStatusTickTiming {
+    /**
+     * 无
+     */
+    none = 0,
+    /**
+     * 拥有者回合开始
+     */
+    owner_turn_start = 1,
+    /**
+     * 拥有者回合结束
+     */
+    owner_turn_end = 2,
+    /**
+     * 行动前
+     */
+    before_action = 3,
+    /**
+     * 行动后
+     */
+    after_action = 4,
+    /**
+     * 攻击前
+     */
+    before_attack = 5,
+    /**
+     * 攻击后
+     */
+    after_attack = 6,
+    /**
+     * 受伤前
+     */
+    before_damaged = 7,
+    /**
+     * 受伤后
+     */
+    after_damaged = 8,
 }
 
  
@@ -785,6 +917,492 @@ export class group1 {
 
 
 
+export class Ibattle_ruleConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.rule_id = _buf_.ReadInt()
+        this.ap_per_turn = _buf_.ReadInt()
+        this.draw_per_turn = _buf_.ReadInt()
+        this.first_draw = _buf_.ReadInt()
+        this.reshuffle_when_draw_empty = _buf_.ReadInt()
+        this.block_clear_timing = _buf_.ReadInt()
+        this.max_hand_size = _buf_.ReadInt()
+        this.enable_enemy_intent = _buf_.ReadInt()
+        this.enabled = _buf_.ReadInt()
+    }
+
+    /**
+     * 规则ID
+     */
+    readonly rule_id: number
+    /**
+     * 每回合行动点
+     */
+    readonly ap_per_turn: number
+    /**
+     * 每回合抽牌数
+     */
+    readonly draw_per_turn: number
+    /**
+     * 首回合抽牌数
+     */
+    readonly first_draw: number
+    /**
+     * 抽牌堆空时是否洗弃牌堆
+     */
+    readonly reshuffle_when_draw_empty: number
+    /**
+     * 护盾清除时机
+     */
+    readonly block_clear_timing: EBlockClearTiming
+    /**
+     * 手牌上限
+     */
+    readonly max_hand_size: number
+    /**
+     * 是否启用敌人意图
+     */
+    readonly enable_enemy_intent: number
+    /**
+     * 是否启用
+     */
+    readonly enabled: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class IcardConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.card_id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.icon = _buf_.ReadString()
+        this.card_type = _buf_.ReadInt()
+        this.cost_ap = _buf_.ReadInt()
+        this.can_enchant = _buf_.ReadInt()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.effect_group = []; for(let i = 0 ; i < n ; i++) { let _e0; { let n = Math.min(_buf_.ReadSize(), _buf_.Size); _e0 = []; for(let i = 0 ; i < n ; i++) { let _e1; _e1 = _buf_.ReadInt(); _e0.push(_e1);}}; this.effect_group.push(_e0);}}
+        this.enabled = _buf_.ReadInt()
+    }
+
+    /**
+     * 卡牌ID
+     */
+    readonly card_id: number
+    /**
+     * 卡牌名字
+     */
+    readonly name: string
+    /**
+     * 图标
+     */
+    readonly icon: string
+    /**
+     * 卡牌类型
+     */
+    readonly card_type: ECardType
+    /**
+     * 行动点消耗
+     */
+    readonly cost_ap: number
+    /**
+     * 是否可附魔
+     */
+    readonly can_enchant: number
+    /**
+     * 效果组
+     */
+    readonly effect_group: number[][]
+    /**
+     * 是否启用
+     */
+    readonly enabled: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class Icombat_scenario_enemyConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.scenario_id = _buf_.ReadInt()
+        this.order = _buf_.ReadInt()
+        this.enemy_id = _buf_.ReadInt()
+        this.level = _buf_.ReadInt()
+        this.hp_rate = _buf_.ReadFloat()
+        this.enabled = _buf_.ReadInt()
+    }
+
+    /**
+     * 战斗场景ID
+     */
+    readonly scenario_id: number
+    /**
+     * 顺序
+     */
+    readonly order: number
+    /**
+     * 敌人ID
+     */
+    readonly enemy_id: number
+    /**
+     * 等级
+     */
+    readonly level: number
+    /**
+     * 初始血量倍率
+     */
+    readonly hp_rate: number
+    /**
+     * 是否启用
+     */
+    readonly enabled: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class Icombat_scenarioConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.scenario_id = _buf_.ReadInt()
+        this.scenario_type = _buf_.ReadInt()
+        this.rule_id = _buf_.ReadInt()
+        this.player_hp = _buf_.ReadInt()
+        this.player_mp = _buf_.ReadInt()
+        this.player_def = _buf_.ReadInt()
+        this.weapon_id = _buf_.ReadInt()
+        this.enabled = _buf_.ReadInt()
+    }
+
+    /**
+     * 战斗场景ID
+     */
+    readonly scenario_id: number
+    /**
+     * 场景类型
+     */
+    readonly scenario_type: EScenarioType
+    /**
+     * 战斗规则ID
+     */
+    readonly rule_id: number
+    /**
+     * 玩家生命
+     */
+    readonly player_hp: number
+    /**
+     * 玩家灵力
+     */
+    readonly player_mp: number
+    /**
+     * 玩家防御
+     */
+    readonly player_def: number
+    /**
+     * 初始武器ID
+     */
+    readonly weapon_id: number
+    /**
+     * 是否启用
+     */
+    readonly enabled: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class Ideck_cardConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.card_id = _buf_.ReadInt()
+        this.deck_id = _buf_.ReadInt()
+        this.count = _buf_.ReadInt()
+    }
+
+    /**
+     * 卡牌ID
+     */
+    readonly card_id: number
+    /**
+     * 牌组ID
+     */
+    readonly deck_id: number
+    /**
+     * 数量
+     */
+    readonly count: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class IdeckConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.deck_id = _buf_.ReadInt()
+        this.deck_type = _buf_.ReadInt()
+        this.enabled = _buf_.ReadInt()
+    }
+
+    /**
+     * 牌组ID
+     */
+    readonly deck_id: number
+    /**
+     * 牌组类型
+     */
+    readonly deck_type: EDeckType
+    /**
+     * 是否启用
+     */
+    readonly enabled: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class Ieffect_defineConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.effect_id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.effect_type = _buf_.ReadInt()
+        this.enabled = _buf_.ReadInt()
+    }
+
+    /**
+     * 效果ID
+     */
+    readonly effect_id: number
+    /**
+     * 效果名
+     */
+    readonly name: string
+    /**
+     * 效果类型
+     */
+    readonly effect_type: EEffectType
+    /**
+     * 是否启用
+     */
+    readonly enabled: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class Ienemy_intentConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.intent_id = _buf_.ReadInt()
+        this.intent_group_id = _buf_.ReadInt()
+        this.intent_name = _buf_.ReadString()
+        this.intent_type = _buf_.ReadInt()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.effect_group = []; for(let i = 0 ; i < n ; i++) { let _e0; { let n = Math.min(_buf_.ReadSize(), _buf_.Size); _e0 = []; for(let i = 0 ; i < n ; i++) { let _e1; _e1 = _buf_.ReadInt(); _e0.push(_e1);}}; this.effect_group.push(_e0);}}
+        this.enabled = _buf_.ReadInt()
+    }
+
+    /**
+     * 意图ID
+     */
+    readonly intent_id: number
+    /**
+     * 意图组ID
+     */
+    readonly intent_group_id: number
+    /**
+     * 意图名
+     */
+    readonly intent_name: string
+    /**
+     * 意图类型
+     */
+    readonly intent_type: EIntentType
+    /**
+     * 效果组
+     */
+    readonly effect_group: number[][]
+    /**
+     * 是否启用
+     */
+    readonly enabled: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class IenemyConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.enemy_id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.icon = _buf_.ReadString()
+        this.hp = _buf_.ReadInt()
+        this.atk = _buf_.ReadInt()
+        this.def = _buf_.ReadInt()
+        this.element = _buf_.ReadInt()
+        this.intent_group_id = _buf_.ReadInt()
+        this.drop_table_id = _buf_.ReadInt()
+        this.enabled = _buf_.ReadInt()
+    }
+
+    /**
+     * 敌人ID
+     */
+    readonly enemy_id: number
+    /**
+     * 名字
+     */
+    readonly name: string
+    /**
+     * 图标
+     */
+    readonly icon: string
+    /**
+     * 最大生命
+     */
+    readonly hp: number
+    /**
+     * 攻击
+     */
+    readonly atk: number
+    /**
+     * 防御
+     */
+    readonly def: number
+    /**
+     * 五行属性
+     */
+    readonly element: EElement
+    /**
+     * 意图组ID
+     */
+    readonly intent_group_id: number
+    /**
+     * 掉落表ID
+     */
+    readonly drop_table_id: number
+    /**
+     * 是否启用
+     */
+    readonly enabled: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
 export class IitemConfig {
 
     constructor(_buf_: ByteBuf) {
@@ -793,7 +1411,9 @@ export class IitemConfig {
         this.sub_type = _buf_.ReadInt()
         this.quality = _buf_.ReadInt()
         this.icon = _buf_.ReadString()
-        this.bag_size = _buf_.ReadInt()
+        this.bag_width = _buf_.ReadInt()
+        this.bag_height = _buf_.ReadInt()
+        this.enabled = _buf_.ReadInt()
     }
 
     /**
@@ -811,18 +1431,28 @@ export class IitemConfig {
     /**
      * 品质
      */
-    readonly quality: number
+    readonly quality: EQuality
     /**
      * 图片
      */
     readonly icon: string
     /**
-     * 物品占据格子
+     * 背包宽
      */
-    readonly bag_size: number
+    readonly bag_width: number
+    /**
+     * 背包高
+     */
+    readonly bag_height: number
+    /**
+     * 是否启用
+     */
+    readonly enabled: number
 
 /*
     resolve(tables:Tables) {
+        
+        
         
         
         
@@ -905,6 +1535,112 @@ export class int3 {
 
 
 
+export class IstatusConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.status_id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.icon = _buf_.ReadString()
+        this.status_type = _buf_.ReadInt()
+        this.stack_rule = _buf_.ReadInt()
+        this.max_stack = _buf_.ReadInt()
+        this.tick_timing = _buf_.ReadInt()
+        this.remove_timing = _buf_.ReadInt()
+        this.tick_effect_id = _buf_.ReadInt()
+        this.effect_mode = _buf_.ReadInt()
+        this.value_per_stack = _buf_.ReadInt()
+        this.reduce_stack_on_tick = _buf_.ReadInt()
+        this.dispelable = _buf_.ReadInt()
+        this.desc = _buf_.ReadString()
+        this.enabled = _buf_.ReadInt()
+    }
+
+    /**
+     * 状态ID
+     */
+    readonly status_id: number
+    /**
+     * 状态名字
+     */
+    readonly name: string
+    /**
+     * 状态图标
+     */
+    readonly icon: string
+    /**
+     * 状态类型
+     */
+    readonly status_type: EStatusType
+    /**
+     * 叠加规则
+     */
+    readonly stack_rule: EStatusStackRule
+    /**
+     * 最大层数
+     */
+    readonly max_stack: number
+    /**
+     * 结算时机
+     */
+    readonly tick_timing: EStatusTickTiming
+    /**
+     * 移除时机
+     */
+    readonly remove_timing: EStatusRemoveTiming
+    /**
+     * 结算效果ID
+     */
+    readonly tick_effect_id: number
+    /**
+     * 状态效果模式
+     */
+    readonly effect_mode: EStatusEffectMode
+    /**
+     * 每层数值
+     */
+    readonly value_per_stack: number
+    /**
+     * 是否每次结算后递减
+     */
+    readonly reduce_stack_on_tick: number
+    /**
+     * 是否可驱散
+     */
+    readonly dispelable: number
+    /**
+     * 描述
+     */
+    readonly desc: string
+    /**
+     * 是否启用
+     */
+    readonly enabled: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
 export class item1 {
 
     constructor(_buf_: ByteBuf) {
@@ -951,6 +1687,64 @@ export class item2 {
 
 /*
     resolve(tables:Tables) {
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class IweaponConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.weapon_id = _buf_.ReadInt()
+        this.item_id = _buf_.ReadInt()
+        this.weapon_type = _buf_.ReadInt()
+        this.max_durability = _buf_.ReadInt()
+        this.base_deck_id = _buf_.ReadInt()
+        this.element = _buf_.ReadInt()
+        this.enabled = _buf_.ReadInt()
+    }
+
+    /**
+     * 武器ID
+     */
+    readonly weapon_id: number
+    /**
+     * 对应物品ID
+     */
+    readonly item_id: number
+    /**
+     * 武器类型
+     */
+    readonly weapon_type: EWeaponType
+    /**
+     * 最大耐久
+     */
+    readonly max_durability: number
+    /**
+     * 基础牌组ID
+     */
+    readonly base_deck_id: number
+    /**
+     * 五行属性
+     */
+    readonly element: EElement
+    /**
+     * 是否启用
+     */
+    readonly enabled: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
         
         
     }
@@ -1458,23 +2252,672 @@ export class item {
 
 
 
+export class battle_rule {
+    private _dataMap: Map<number, Ibattle_ruleConfig>
+	//private _dataObj: {[index:number]:Ibattle_ruleConfig}
+    private _dataList: Ibattle_ruleConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Ibattle_ruleConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Ibattle_ruleConfig
+            _v = new Ibattle_ruleConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.rule_id, _v)
+			//this._dataObj[_v.rule_id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Ibattle_ruleConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Ibattle_ruleConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Ibattle_ruleConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Ibattle_ruleConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class card {
+    private _dataMap: Map<number, IcardConfig>
+	//private _dataObj: {[index:number]:IcardConfig}
+    private _dataList: IcardConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, IcardConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: IcardConfig
+            _v = new IcardConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.card_id, _v)
+			//this._dataObj[_v.card_id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, IcardConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: IcardConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): IcardConfig[] { this.load();return this._dataList; }
+
+    get(key: number): IcardConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class effect_define {
+    private _dataMap: Map<number, Ieffect_defineConfig>
+	//private _dataObj: {[index:number]:Ieffect_defineConfig}
+    private _dataList: Ieffect_defineConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Ieffect_defineConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Ieffect_defineConfig
+            _v = new Ieffect_defineConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.effect_id, _v)
+			//this._dataObj[_v.effect_id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Ieffect_defineConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Ieffect_defineConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Ieffect_defineConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Ieffect_defineConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class deck {
+    private _dataMap: Map<number, IdeckConfig>
+	//private _dataObj: {[index:number]:IdeckConfig}
+    private _dataList: IdeckConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, IdeckConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: IdeckConfig
+            _v = new IdeckConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.deck_id, _v)
+			//this._dataObj[_v.deck_id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, IdeckConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: IdeckConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): IdeckConfig[] { this.load();return this._dataList; }
+
+    get(key: number): IdeckConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class deck_card {
+    private _dataMap: Map<number, Ideck_cardConfig>
+	//private _dataObj: {[index:number]:Ideck_cardConfig}
+    private _dataList: Ideck_cardConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Ideck_cardConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Ideck_cardConfig
+            _v = new Ideck_cardConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.card_id, _v)
+			//this._dataObj[_v.card_id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Ideck_cardConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Ideck_cardConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Ideck_cardConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Ideck_cardConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class weapon {
+    private _dataMap: Map<number, IweaponConfig>
+	//private _dataObj: {[index:number]:IweaponConfig}
+    private _dataList: IweaponConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, IweaponConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: IweaponConfig
+            _v = new IweaponConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.weapon_id, _v)
+			//this._dataObj[_v.weapon_id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, IweaponConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: IweaponConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): IweaponConfig[] { this.load();return this._dataList; }
+
+    get(key: number): IweaponConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class enemy {
+    private _dataMap: Map<number, IenemyConfig>
+	//private _dataObj: {[index:number]:IenemyConfig}
+    private _dataList: IenemyConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, IenemyConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: IenemyConfig
+            _v = new IenemyConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.enemy_id, _v)
+			//this._dataObj[_v.enemy_id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, IenemyConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: IenemyConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): IenemyConfig[] { this.load();return this._dataList; }
+
+    get(key: number): IenemyConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class enemy_intent {
+    private _dataMap: Map<number, Ienemy_intentConfig>
+	//private _dataObj: {[index:number]:Ienemy_intentConfig}
+    private _dataList: Ienemy_intentConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Ienemy_intentConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Ienemy_intentConfig
+            _v = new Ienemy_intentConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.intent_id, _v)
+			//this._dataObj[_v.intent_id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Ienemy_intentConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Ienemy_intentConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Ienemy_intentConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Ienemy_intentConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class combat_scenario {
+    private _dataMap: Map<number, Icombat_scenarioConfig>
+	//private _dataObj: {[index:number]:Icombat_scenarioConfig}
+    private _dataList: Icombat_scenarioConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Icombat_scenarioConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Icombat_scenarioConfig
+            _v = new Icombat_scenarioConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.scenario_id, _v)
+			//this._dataObj[_v.scenario_id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Icombat_scenarioConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Icombat_scenarioConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Icombat_scenarioConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Icombat_scenarioConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class combat_scenario_enemy {
+    private _dataMap: Map<number, Icombat_scenario_enemyConfig>
+	//private _dataObj: {[index:number]:Icombat_scenario_enemyConfig}
+    private _dataList: Icombat_scenario_enemyConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Icombat_scenario_enemyConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Icombat_scenario_enemyConfig
+            _v = new Icombat_scenario_enemyConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.scenario_id, _v)
+			//this._dataObj[_v.scenario_id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Icombat_scenario_enemyConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Icombat_scenario_enemyConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Icombat_scenario_enemyConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Icombat_scenario_enemyConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class status {
+    private _dataMap: Map<number, IstatusConfig>
+	//private _dataObj: {[index:number]:IstatusConfig}
+    private _dataList: IstatusConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, IstatusConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: IstatusConfig
+            _v = new IstatusConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.status_id, _v)
+			//this._dataObj[_v.status_id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, IstatusConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: IstatusConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): IstatusConfig[] { this.load();return this._dataList; }
+
+    get(key: number): IstatusConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
 type ByteBufLoader = (file: string) => ByteBuf
 
 export class Tables {
     private _item: item
     get item(): item  { return this._item;}
+    private _battle_rule: battle_rule
+    get battle_rule(): battle_rule  { return this._battle_rule;}
+    private _card: card
+    get card(): card  { return this._card;}
+    private _effect_define: effect_define
+    get effect_define(): effect_define  { return this._effect_define;}
+    private _deck: deck
+    get deck(): deck  { return this._deck;}
+    private _deck_card: deck_card
+    get deck_card(): deck_card  { return this._deck_card;}
+    private _weapon: weapon
+    get weapon(): weapon  { return this._weapon;}
+    private _enemy: enemy
+    get enemy(): enemy  { return this._enemy;}
+    private _enemy_intent: enemy_intent
+    get enemy_intent(): enemy_intent  { return this._enemy_intent;}
+    private _combat_scenario: combat_scenario
+    get combat_scenario(): combat_scenario  { return this._combat_scenario;}
+    private _combat_scenario_enemy: combat_scenario_enemy
+    get combat_scenario_enemy(): combat_scenario_enemy  { return this._combat_scenario_enemy;}
+    private _status: status
+    get status(): status  { return this._status;}
 
     static getTableNames(): string[] {
         let names: string[] = [];
         names.push('item');
+        names.push('battle_rule');
+        names.push('card');
+        names.push('effect_define');
+        names.push('deck');
+        names.push('deck_card');
+        names.push('weapon');
+        names.push('enemy');
+        names.push('enemy_intent');
+        names.push('combat_scenario');
+        names.push('combat_scenario_enemy');
+        names.push('status');
         return names;
     }
 
     constructor(loader: ByteBufLoader) {
         this._item = new item(loader('item'))
+        this._battle_rule = new battle_rule(loader('battle_rule'))
+        this._card = new card(loader('card'))
+        this._effect_define = new effect_define(loader('effect_define'))
+        this._deck = new deck(loader('deck'))
+        this._deck_card = new deck_card(loader('deck_card'))
+        this._weapon = new weapon(loader('weapon'))
+        this._enemy = new enemy(loader('enemy'))
+        this._enemy_intent = new enemy_intent(loader('enemy_intent'))
+        this._combat_scenario = new combat_scenario(loader('combat_scenario'))
+        this._combat_scenario_enemy = new combat_scenario_enemy(loader('combat_scenario_enemy'))
+        this._status = new status(loader('status'))
 
         /*
         this._item.resolve(this)
+        this._battle_rule.resolve(this)
+        this._card.resolve(this)
+        this._effect_define.resolve(this)
+        this._deck.resolve(this)
+        this._deck_card.resolve(this)
+        this._weapon.resolve(this)
+        this._enemy.resolve(this)
+        this._enemy_intent.resolve(this)
+        this._combat_scenario.resolve(this)
+        this._combat_scenario_enemy.resolve(this)
+        this._status.resolve(this)
         */
     }
 }
