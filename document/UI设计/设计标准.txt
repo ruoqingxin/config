@@ -1,0 +1,1092 @@
+飘，我结合你现在《末法寻仙》的末法修仙、搜打撤、卡牌战斗、五行注灵、临战法囊、武器耐久、敌人意图这些核心风格，给你整理一套可以直接交给 AI 生成 UI / 卡牌图的设计描述。
+
+下面内容分成两大块：
+
+具体界面设计
+一批卡牌设计与 AI 识别提示词
+整体会尽量写成“AI 能看懂、能直接生成”的描述。
+
+一、统一 UI 美术基准
+在生成任何界面前，建议先固定一条总风格：
+
+*.txt
+Plaintext
+游戏名：《末法寻仙》
+类型：2D 修仙题材搜打撤卡牌构筑 RPG。
+世界观：末法时代，天地灵气枯竭，古宗门遗迹残破，修士无法自然修炼，只能进入秘境争夺属性石、功法残卷、灵草、丹药和突破材料。
+整体 UI 风格：暗色东方玄幻，低饱和国风水墨，古旧修仙质感，残破秘境氛围，使用旧铜、古木、泛黄符纸、竹简、玉简、裂纹石板、残破阵纹、符箓封条、五行灵光。
+画风：2D 手绘游戏 UI，古朴、残破、克制、有策略感，文字区域清晰，适合卡牌战斗和资源管理。
+不要：现代科幻、Q版萌系、高饱和页游仙侠、欧美魔幻、霓虹光污染。
+二、界面一：战斗主界面设计
+1. 界面定位
+这是你当前第二阶段最核心的界面，用来承载：
+
+回合制卡牌战斗
+敌人意图
+手牌
+临战法囊 5 格
+五行属性石拖拽注灵
+武器耐久
+伤害预览
+战斗日志
+这个界面一定要优先做，因为它和你当前代码里的 BattleView、BattleEngine、BattleManager 是最贴合的。
+
+2. 战斗主界面布局
+推荐采用横屏布局。
+
+*.txt
+Plaintext
+┌────────────────────────────────────┐
+│ 顶部：秘境名称 / 回合数 / 战斗状态 / 设置 │
+├────────────────────────────────────┤
+│ 左侧：玩家状态        中间：战场       右侧：敌人信息 │
+│ HP / MP / AP          残破秘境背景      敌人血量       │
+│ 护盾 / 状态           攻击轨迹          五行属性       │
+│ 武器耐久              伤害数字          敌人意图       │
+├────────────────────────────────────┤
+│ 中下：伤害预览 / 战斗日志 / 当前提示              │
+├────────────────────────────────────┤
+│ 底部：抽牌堆 / 手牌区 / 弃牌堆 / 结束回合按钮      │
+├────────────────────────────────────┤
+│ 右下或左下：临战法囊 5 格，放置五行属性石          │
+└────────────────────────────────────┘
+3. 战斗主界面视觉描述
+背景
+背景建议是：
+
+*.txt
+Plaintext
+残破的古宗门秘境战场，地面有破碎石砖、暗淡阵纹、断裂石柱、枯萎灵草、远处有被雾气笼罩的宗门废墟。整体暗青灰和墨黑色调，局部有微弱玉青色灵气流动。
+不要做成太亮的仙境，要有“末法残破感”。
+
+玩家状态区
+位置：左下或左侧。
+
+内容：
+
+玩家头像或剪影
+HP：生命
+MP：灵力
+AP：行动点
+护盾
+状态图标
+当前武器
+武器耐久
+视觉：
+
+*.txt
+Plaintext
+玩家状态面板像一块残破的青黑石碑，边框为旧铜和符纸封条。生命条为暗红色，灵力条为暗青蓝色，行动点为三颗发光玉珠，护盾为半透明土黄色符盾。武器耐久显示为一条刻在剑鞘上的细长裂纹条，耐久越低裂纹越明显。
+敌人区域
+位置：右侧或战场上方。
+
+敌人当前配置有：
+
+腐化灵鼠：木属性
+赤眼妖兔：火属性
+枯藤精：木属性
+敌人信息需要显示：
+
+名字
+HP
+护盾
+五行属性
+状态层数
+下一步意图
+视觉：
+
+*.txt
+Plaintext
+敌人信息以悬浮符牌形式显示在敌人头顶。符牌使用泛黄符纸和旧铜夹边，敌人意图用明显图标表达：攻击是红色爪痕，防御是土色盾纹，减益是紫灰符咒，蓄力是聚气光环。
+手牌区
+位置：底部中央。
+
+卡牌应该像半展开的古籍牌页，而不是现代扑克牌。
+
+视觉：
+
+*.txt
+Plaintext
+底部手牌区像展开的竹简与符纸混合结构。每张卡牌有旧铜边框、泛黄纸面、手绘技能图、清晰名称区、AP 消耗玉珠、效果描述区。攻击牌边框带剑痕，防御牌边框带盾纹，注灵后的卡牌边框出现对应五行灵光。
+临战法囊区域
+这是你第二阶段的关键 UI。
+
+固定 5 格，分别放：
+
+金属性石
+木属性石
+水属性石
+火属性石
+土属性石
+视觉：
+
+*.txt
+Plaintext
+临战法囊是一个打开的旧布符囊，边缘有磨损麻布、兽皮缝线和小型阵纹。内部横向排列 5 个独立石槽，每个石槽只能放一颗属性石，不显示堆叠数字。空槽为暗色凹陷，已消耗后显示灰烬和暗淡符纹。
+交互表现：
+
+*.txt
+Plaintext
+当玩家选中属性石时，属性石外圈出现对应五行光环。
+当拖拽到可注灵攻击牌上时，卡牌边框发光，显示“可注灵”。
+拖拽成功后，属性石所在格子变为空，卡牌名称变成“火灵·剑斩”“金灵·飞剑”等。
+若不能注灵，卡牌边框变暗红，并显示原因：耐久不足 / 该牌不可注灵 / 已注灵。
+伤害预览面板
+位置：中下方或右下方。
+
+未注灵时：
+
+*.txt
+Plaintext
+伤害预览：
+基础伤害：6
+目标防御：0
+预计生命损失：6
+注灵后：
+
+*.txt
+Plaintext
+伤害预览：
+基础：6
+火灵：7，火克金
+护盾吸收：0
+生命损失：13
+视觉：
+
+*.txt
+Plaintext
+伤害预览面板像一张临时展开的战斗符纸，底色为暗黄羊皮纸，基础伤害用白色或米黄色，注灵伤害使用对应五行颜色，克制米黄色，注灵伤害使用对应五行颜色，克制文字用亮金色强调。
+4. 战斗主界面 AI 提示词
+中文提示词
+*.txt
+Plaintext
+设计一张 2D 东方玄幻修仙卡牌战斗主界面，游戏为《末法寻仙》，背景是末法时代的残破古宗秘境。界面整体为暗色低饱和国风水墨风，使用旧铜边框、古木面板、泛黄符纸、竹简、玉简、裂纹石板、残破阵纹和微弱五行灵光。
+画面为横屏游戏 UI。中间是残破秘境战场，地面有破碎石砖、暗淡阵纹、断裂石柱和枯萎灵草。左侧显示玩家状态：生命 HP、灵力 MP、行动点 AP、护盾、状态、当前武器和武器耐久。右侧显示敌人：腐化灵鼠、赤眼妖兔、枯藤精，敌人头顶有血条、五行属性和敌人意图图标。底部是手牌区，卡牌像泛黄符纸和古籍牌页，有旧铜边框和清晰文字区。右下角是固定 5 格临战法囊，像打开的旧布符囊，里面放置金、木、水、火、土五颗属性石。中下方有伤害预览面板，显示基础伤害、注灵伤害、五行克制、护盾吸收和生命损失。
+整体风格古朴、残破、克制、策略感强，文字区域清晰，适合回合制卡牌战斗。不要现代科幻，不要 Q 版，不要高饱和仙侠页游光效。
+英文提示词
+*.txt
+Plaintext
+Design a 2D dark eastern fantasy cultivation card battle UI for a game called Mofa Xunxian. The setting is a ruined immortal sect secret realm in an age of spiritual exhaustion. The UI uses low-saturation Chinese ink wash style, worn bronze frames, dark wood panels, aged parchment, bamboo slips, jade slips, cracked stone slabs, broken formation patterns, talisman seals and subtle five-element spiritual glow.
+Horizontal game screen layout. The center is a ruined secret realm battlefield with broken stone tiles, dim formation circles, collapsed pillars and withered spiritual herbs. The left side shows player status: HP, MP, AP, block, status icons, current weapon and weapon durability. The right side shows enemies: corrupted spirit rat, red-eyed demon rabbit, withered vine spirit, each with HP bar, elemental icon and enemy intent icon. The bottom area is the hand card zone, cards look like aged talisman paper and ancient manual pages with bronze frames and clear text areas. The bottom right is a fixed five-slot battle pouch, shaped like an opened old cloth talisman bag, containing five elemental stones: metal, wood, water, fire and earth. The lower center has a damage preview panel showing base damage, enchanted damage, elemental counter, block absorption and HP loss.
+Ancient, ruined, restrained, strategic, readable UI. No modern sci-fi, no cute chibi style, no flashy high-saturation mobile MMORPG effects.
+三、界面二：临战法囊详细界面
+1. 功能定位
+临战法囊不是完整背包。
+
+它只服务战斗中可用物品，目前第二阶段固定 5 格。
+
+规则：
+
+*.txt
+Plaintext
+每格只能放 1 个物品实例。
+所有物品不可堆叠。
+第二阶段只放五种一阶普通属性石。
+拖拽成功立即消耗属性石和武器耐久。
+2. UI 结构
+*.txt
+Plaintext
+┌────────────────────────────┐
+│ 临战法囊                    │
+│ 一只打开的旧布法囊 / 兽皮卷轴 │
+├────┬────┬────┬────┬────┤
+│ 金 │ 木 │ 水 │ 火 │ 土 │
+└────┴────┴────┴────┴────┘
+每个格子显示：
+
+属性石图标
+五行小标识
+鼠标悬停说明
+是否可拖拽
+消耗后空槽状态
+3. 五行属性石图标设计
+金属性石
+*.txt
+Plaintext
+暗金色不规则晶石，内部有锐利剑痕状金属纹路，边缘有旧铜色光晕，晶石表面刻有金行符文。整体低饱和，不要太亮，像末法时代残存的金行灵石。
+木属性石
+*.txt
+Plaintext
+青绿色不规则晶石，内部有叶脉和藤蔓状灵纹，表面有细小裂纹，散发微弱墨绿色生机光。不要鲜艳，要像枯木中残存的一缕生机。
+水属性石
+*.txt
+Plaintext
+深蓝青蓝色半透明晶石，内部有水波、涟漪和雾气纹路，边缘有幽蓝微光。整体冷色、克制、神秘。
+火属性石
+*.txt
+Plaintext
+暗红赤橙色晶石，内部像余烬和熔火裂纹，边缘有微弱火星，不要大火焰，不要爆炸感，要像将熄未熄的末法丹火。
+土属性石
+*.txt
+Plaintext
+黄褐色岩晶，质感厚重，内部有山纹、岩层纹和土黄色符文，边缘有尘土颗粒感，整体稳重古旧。
+4. 临战法囊 AI 提示词
+*.txt
+Plaintext
+设计一个 2D 游戏 UI 组件：临战法囊。它属于暗色东方玄幻修仙卡牌 RPG《末法寻仙》。临战法囊是一只打开的旧布符囊，也像一张磨损兽皮卷轴，边缘有麻布缝线、旧铜扣、符纸封条和残破阵纹。内部横向排列 5 个独立物品槽，每个槽只能放一颗属性石，不显示堆叠数字。
+五个槽分别放置五行属性石：金、木、水、火、土。金属性石是暗金色晶石，有剑痕和金属符文；木属性石是青绿色晶石，有叶脉和藤蔓灵纹；水属性石是深蓝青蓝晶石，有水波涟漪；火属性石是暗红赤橙晶石，有余烬裂纹；土属性石是黄褐岩晶，有山纹和岩层纹理。空槽为暗色凹陷，带灰烬和暗淡符文。
+整体低饱和、古朴、残破、清晰可读，适合游戏 UI 图标资源。透明背景。
+四、界面三：卡牌详情界面
+1. 功能定位
+用于查看某张卡牌的详细信息，包括：
+
+卡牌名称
+类型
+AP 消耗
+基础效果
+是否可注灵
+注灵后效果
+五行克制提示
+来源：武器基础牌组 / 功法牌组
+2. 卡牌详情布局
+*.txt
+Plaintext
+┌─────────────────────┐
+│ 卡牌名称：剑斩        │
+│ 类型：攻击牌          │
+│ 消耗：1 AP            │
+├─────────────────────┤
+│ 大卡图：剑气斩击       │
+├─────────────────────┤
+│ 效果：造成 6 点伤害    │
+│ 标签：武器基础牌 / 可注灵 │
+├─────────────────────┤
+│ 注灵说明：             │
+│ 可拖拽属性石到此牌上    │
+│ 注灵后额外造成五行伤害  │
+│ 并触发对应五行轻微效果  │
+└─────────────────────┘
+3. 卡牌详情视觉
+*.txt
+Plaintext
+卡牌详情面板像一本打开的古旧战斗手札。左侧展示大卡图，右侧展示卡牌属性。边框使用旧铜和竹简，背景为泛黄纸面，局部有水墨污渍和符文。可注灵标签用小型五行阵纹表示。
+4. AI 提示词
+*.txt
+Plaintext
+设计一张东方玄幻修仙卡牌详情 UI。界面像一本打开的古旧战斗手札，使用泛黄纸张、竹简边框、旧铜装饰、符纸封条和淡淡水墨污渍。左侧展示大卡图，右侧展示卡牌信息：卡牌名称、攻击牌类型、AP 消耗、基础伤害、可注灵标签、注灵说明。整体暗色低饱和，文字区域清晰，风格古朴残破，适合《末法寻仙》这款末法修仙卡牌 RPG。
+五、界面四：武器耐久与注灵提示界面
+1. 功能定位
+因为你当前设定里：
+
+*.txt
+Plaintext
+普通攻击不消耗武器耐久。
+只有注灵消耗武器耐久。
+耐久不足不能注灵。
+所以需要一个清晰的耐久提示。
+
+2. 视觉设计
+武器耐久不要做成普通蓝条，建议做成：
+
+*.txt
+Plaintext
+剑鞘灵纹耐久条。
+具体：
+
+*.txt
+Plaintext
+一把横放的破旧铁剑小图标，剑身上刻着灵纹。耐久越高，灵纹越完整；耐久降低时，灵纹断裂、变暗；耐久为 0 时，剑身出现灰白裂纹，显示“灵纹破损”。
+状态分级：
+
+耐久比例	状态	UI 表现
+70%-100%	完好	灵纹稳定，暗金微光
+30%-69%	磨损	灵纹断续，旧铜色变暗
+1%-29%	残损	裂纹明显，红褐色警示
+0%	灵纹破损	灰白无光，不可注灵
+3. 注灵失败提示
+*.txt
+Plaintext
+注灵失败：
+武器耐久不足。
+需要耐久 5，当前耐久 3。
+视觉：
+
+*.txt
+Plaintext
+暗红符纸提示框，边缘像烧焦的符箓，文字为米黄色，警示文字为暗红色。
+4. AI 提示词
+*.txt
+Plaintext
+设计一个修仙卡牌游戏的武器耐久 UI。表现为一把横放的破旧铁剑，剑身上刻有暗金色灵纹，旁边是耐久条。耐久高时灵纹完整发光，耐久降低时灵纹断裂变暗，耐久为零时显示灰白裂纹和“灵纹破损”状态。UI 使用旧铜边框、暗色石板底、符纸标签，整体为暗色东方玄幻风格，适合末法修仙卡牌战斗界面。
+六、界面五：敌人意图 UI
+1. 功能定位
+当前敌人意图有：
+
+攻击
+防御
+增益
+减益
+攻击并减益
+蓄力
+特殊行动
+逃跑
+召唤
+你当前配置里实际有：
+
+爪击
+啃咬
+冲撞
+蓄力
+猛撞
+藤击
+缠绕
+木盾
+毒刺
+2. 意图图标设计
+意图	图标描述
+攻击	红褐色爪痕 / 剑痕
+防御	土黄色护盾符纹
+增益	金色上升灵气
+减益	紫灰色咒符
+攻击并减益	爪痕叠加紫色咒纹
+蓄力	聚气圆环 / 发光阵纹
+召唤	破碎小阵门
+逃跑	模糊残影 / 退散符
+特殊	古怪黑色符印
+3. 敌人意图 AI 提示词
+*.txt
+Plaintext
+设计一组东方玄幻修仙卡牌游戏的敌人意图图标。图标风格为暗色低饱和，使用泛黄符纸、旧铜描边、朱砂符纹和微弱灵光。需要包含：攻击图标，红褐色爪痕；防御图标，土黄色护盾符纹；增益图标，金色上升灵气；减益图标，紫灰色咒符；攻击并减益图标，爪痕叠加紫色咒纹；蓄力图标，聚气圆环和发光阵纹；召唤图标，破碎小阵门；逃跑图标，模糊残影和退散符；特殊行动图标，黑色古怪符印。每个图标清晰可读，适合放在敌人头顶的小 UI 符牌中。
+七、界面六：战斗结算界面
+1. 胜利结算
+当前第二阶段主要是 Debug 战斗，但后面接搜打撤时结算界面会很重要。
+
+胜利界面要体现：
+
+*.txt
+Plaintext
+你活下来了，但这只是秘境中的一次小胜。
+布局：
+
+*.txt
+Plaintext
+┌──────────────────────┐
+│ 战斗胜利               │
+│ 敌人已被击败            │
+├──────────────────────┤
+│ 消耗属性石：火属性石 ×1  │
+│ 武器耐久损耗：5          │
+│ 剩余生命：84/100         │
+│ 剩余灵力：80/80          │
+├──────────────────────┤
+│ 获得战利品              │
+│ 木属性石 / 低阶灵草 / 灵石袋 │
+├──────────────────────┤
+│ 继续探索 / 寻找撤离       │
+└──────────────────────┘
+2. 胜利界面 AI 提示词
+*.txt
+Plaintext
+设计一个暗色东方玄幻修仙搜打撤游戏的战斗胜利结算界面。背景是残破秘境中的破碎阵台，微弱玉青色灵光从地面阵纹中流动。中央是一张旧铜边框和泛黄符纸组成的结算面板，标题为“战斗胜利”。面板中显示敌人已被击败、消耗属性石、武器耐久损耗、剩余生命、剩余灵力和获得战利品。战利品格子中有属性石、低阶灵草、灵石袋等图标。底部有“继续探索”和“寻找撤离”两个按钮。整体古朴、残破、克制，有搜打撤后的资源压力感。
+3. 死亡结算
+死亡界面要表达：
+
+*.txt
+Plaintext
+本局资源丢失。
+修行争命失败。
+AI 提示词：
+
+*.txt
+Plaintext
+设计一个暗色东方玄幻修仙搜打撤游戏的死亡结算界面。背景是昏暗秘境、破碎符纸、熄灭阵纹和暗红色灵雾。中央面板为裂开的黑石碑和烧焦符纸，标题为“身陨秘境”。显示本局未撤离资源全部丢失、已消耗属性石不返还、武器耐久损耗保留。物品列表以灰暗图标显示丢失战利品。整体氛围压抑、残破、克制，不要血腥，不要恐怖 gore，重点表现修仙搜打撤失败后的损失感。
+八、一批卡牌设计
+下面给你一批适合当前阶段和后续扩展的卡牌。
+我会按你的配置和规则来设计：
+
+当前已有：剑斩、格挡、飞剑
+当前注灵规则：只有武器基础攻击牌可注灵
+功法牌第二阶段暂不可注灵
+注灵命名：火灵·剑斩、金灵·飞剑等
+注灵后卡牌只改变当前手牌实例
+回合结束未打出，注灵清除，资源不返还
+九、卡牌统一模板设计
+1. 卡牌版式
+*.txt
+Plaintext
+┌──────────────────┐
+│ 左上：AP 消耗       │
+│ 中上：卡牌名称       │
+│ 右上：卡牌类型图标   │
+├──────────────────┤
+│ 中部：卡牌插画       │
+├──────────────────┤
+│ 标签：攻击 / 防御 / 可注灵 │
+├──────────────────┤
+│ 效果描述文本         │
+└──────────────────┘
+2. 卡牌材质
+*.txt
+Plaintext
+卡牌底板为泛黄符纸和古籍纸页，边框为旧铜或黑铁，四角有符箓封角。攻击牌带剑痕和红褐战斗纹，防御牌带土色护盾纹，技能牌带青蓝灵气纹，功法牌带玉简和经卷纹。注灵卡牌在原牌基础上叠加五行颜色光效和五行符印。
+3. 卡牌分类颜色
+类型	主色	视觉语言
+攻击牌	黑铁、暗红、旧铜	剑痕、血褐纹、锋利边框
+防御牌	土黄、旧铜、青灰	护盾纹、石纹、符盾
+技能牌	暗青、玉青	灵气流、手诀、阵纹
+功法牌	暗玉、竹简、金线	玉简、经卷、法诀
+消耗牌	泛黄符纸、朱砂	丹药、符箓、灵石
+十、基础武器牌设计
+卡牌 1：剑斩
+配置对应
+*.txt
+Plaintext
+card_id：1
+名称：剑斩
+类型：攻击牌
+消耗：1 AP
+效果：造成 6 点伤害
+是否可注灵：是
+来源：铁剑基础牌组
+视觉描述
+*.txt
+Plaintext
+一张东方玄幻修仙攻击卡牌，名称为“剑斩”。卡牌底板为泛黄符纸，边框为旧铜和黑铁，四角有破损符箓。卡面插画是一名低阶修士挥动破旧铁剑，斩出一道朴素但凌厉的灰白剑气。背景是残破秘境石地和暗淡阵纹。整体不华丽，表现低阶修士的基础剑招。
+AI 提示词
+*.txt
+Plaintext
+A 2D hand-painted eastern fantasy cultivation card game card named "剑斩". Attack card. Cost 1 AP. Effect: deal 6 damage. The card is made of aged talisman paper with worn bronze and black iron frame, broken talisman corners, clear text area. Illustration shows a low-level cultivator swinging an old iron sword, releasing a simple grey-white sword slash. Background is a ruined secret realm with cracked stone floor and dim formation patterns. Dark low-saturation Chinese fantasy style, ancient, restrained, readable UI card, no sci-fi, no chibi, no flashy effects.
+卡牌 2：格挡
+配置对应
+*.txt
+Plaintext
+card_id：2
+名称：格挡
+类型：防御牌
+消耗：1 AP
+效果：获得 5 点护盾
+是否可注灵：否
+来源：铁剑基础牌组
+视觉描述
+*.txt
+Plaintext
+卡牌插画是一名修士横剑格挡，剑身前方浮现一层土黄色半透明符盾。背景为暗青灰秘境，周围有碎石和微弱灵气。卡牌边框偏土黄色和旧铜色，表现防御与稳固。
+AI 提示词
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card game card named "格挡". Defense card. Cost 1 AP. Effect: gain 5 block. A low-level cultivator holds an old iron sword horizontally to block, with a translucent ochre talisman shield appearing in front of the blade. Dark ruined secret realm background, cracked stones and faint spiritual mist. Card frame uses aged bronze, earth-yellow shield patterns and worn parchment. Clear readable text area, low saturation, ancient cultivation style.
+卡牌 3：飞剑
+配置对应
+*.txt
+Plaintext
+card_id：3
+名称：飞剑
+类型：攻击牌
+消耗：2 AP
+效果：造成 12 点伤害
+是否可注灵：是
+来源：铁剑基础牌组
+视觉描述
+*.txt
+Plaintext
+卡牌插画是一把破旧铁剑被灵力牵引，悬浮在空中向前刺出。剑身有暗淡灵纹，周围有青白色气流。整体比“剑斩”更有修仙感，但仍保持末法时代的克制，不要太华丽。
+AI 提示词
+*.txt
+Plaintext
+A 2D hand-painted eastern fantasy cultivation card named "飞剑". Attack card. Cost 2 AP. Effect: deal 12 damage. The illustration shows an old iron sword floating in the air, controlled by faint spiritual energy, thrusting forward with pale cyan-white sword aura. The sword has dim broken runes on the blade. Background is a ruined immortal sect battlefield with dark mist and cracked stone tiles. Card frame is aged bronze and black iron, worn parchment surface, readable tactical card UI, low saturation, ancient and restrained.
+十一、五行注灵版本卡牌
+这些不是单独配置卡，而是“当前手牌实例注灵后的视觉状态”。
+但给 AI 生成 UI 时，建议也生成一组变体。
+
+卡牌 4：金灵·剑斩
+规则表现
+*.txt
+Plaintext
+由金属性石注灵剑斩后产生。
+基础：造成 6 点伤害。
+注灵：额外造成金行伤害。
+轻微效果：对目标施加 1 层破甲。
+视觉描述
+*.txt
+Plaintext
+在“剑斩”原本卡牌基础上，边框叠加暗金色金行灵光。剑气变得锐利，有金属裂纹和细小剑芒。卡牌右上角出现一个金行属性石小图标，卡名变为“金灵·剑斩”。
+AI 提示词
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "金灵·剑斩". This is an enchanted version of the attack card 剑斩. Cost 1 AP. The card keeps the old parchment and bronze frame, but the border glows with muted dark gold metal-element energy. The sword slash becomes sharper, with metallic cracks, golden sword sparks and ancient metal runes. Add a small metal elemental stone icon on the card. Text area should suggest: deal base damage, extra metal-element damage, apply 1 stack of armor break. Dark low-saturation ruined cultivation style, readable UI card.
+卡牌 5：木灵·剑斩
+规则表现
+*.txt
+Plaintext
+由木属性石注灵剑斩后产生。
+轻微效果：对目标施加 2 层中毒。
+视觉描述
+*.txt
+Plaintext
+剑气中缠绕青绿色藤蔓灵纹，卡牌边框有墨绿灵光，剑痕周围出现枯藤与毒雾。不是生机盎然，而是末法秘境中的腐化木灵。
+AI 提示词
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "木灵·剑斩". Enchanted attack card. The old sword slash is wrapped with muted green vine runes and faint poisonous mist. Card border glows with dark wood-element green light, with withered vine patterns and ancient leaf-vein symbols. Add a small wood elemental stone icon. Text area suggests: deal base damage, extra wood-element damage, apply 2 stacks of poison. Dark ruined cultivation world, low saturation, ancient parchment and bronze frame, readable card UI.
+卡牌 6：水灵·剑斩
+规则表现
+*.txt
+Plaintext
+由水属性石注灵剑斩后产生。
+轻微效果：对目标施加 1 层虚弱。
+视觉描述
+*.txt
+Plaintext
+剑气变成青蓝色水纹剑弧，周围有寒雾和涟漪。卡牌边框有幽蓝水行符文，整体冷静压制。
+AI 提示词
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "水灵·剑斩". Enchanted attack card. The sword slash becomes a deep cyan-blue water arc with ripples, cold mist and faint wave runes. Card border glows with subtle water-element blue light. Add a small water elemental stone icon. Text area suggests: deal base damage, extra water-element damage, apply 1 stack of weak. Ancient worn parchment, bronze frame, dark low-saturation cultivation card UI, clear and readable.
+卡牌 7：火灵·剑斩
+规则表现
+*.txt
+Plaintext
+由火属性石注灵剑斩后产生。
+轻微效果：对目标施加 2 层灼烧。
+视觉描述
+*.txt
+Plaintext
+剑气带有暗红色余烬火光，边缘有燃烧裂纹。火焰不要太亮，要像末法世界中将熄未熄的丹火。卡名变为“火灵·剑斩”。
+AI 提示词
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "火灵·剑斩". Enchanted attack card. The original sword slash is covered with dark red-orange ember flames and burning cracks. The fire should be restrained, like fading alchemy fire in a ruined cultivation world, not bright flashy flames. Card border has muted fire-element glow and red talisman marks. Add a small fire elemental stone icon. Text area suggests: deal base damage, extra fire-element damage, apply 2 stacks of burn. Ancient parchment, worn bronze frame, readable tactical card UI.
+卡牌 8：土灵·剑斩
+规则表现
+*.txt
+Plaintext
+由土属性石注灵剑斩后产生。
+轻微效果：玩家获得 4 点护盾。
+视觉描述
+*.txt
+Plaintext
+剑气厚重，带有岩土碎片和山形符纹。卡牌边框为黄褐色土行灵光，插画中修士脚下浮现小型护身阵。
+AI 提示词
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "土灵·剑斩". Enchanted attack card. The sword slash becomes heavy and earthy, with ochre stone fragments, mountain-shaped runes and dust particles. Card border glows with muted earth-element ochre light. Add a small earth elemental stone icon. Illustration includes a small protective formation under the cultivator's feet. Text area suggests: deal base damage, extra earth-element damage, player gains 4 block. Dark ancient cultivation card UI, low saturation, worn parchment and bronze frame.
+十二、飞剑五行注灵版本
+卡牌 9：金灵·飞剑
+视觉描述
+*.txt
+Plaintext
+飞剑被金行灵光包裹，剑身周围出现多道细小金色剑芒，像锐利金属碎片。整体强调破甲和穿透。
+AI 提示词
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "金灵·飞剑". Enchanted flying sword attack card. An old iron sword floats forward, wrapped in muted dark gold metal-element energy. Sharp golden sword sparks, metallic cracks and ancient metal runes surround the blade. Worn parchment card, aged bronze frame, black iron details, small metal elemental stone icon. The card should feel sharp, armor-breaking, ancient and restrained. Clear readable text area.
+卡牌 10：木灵·飞剑
+视觉描述
+*.txt
+Plaintext
+飞剑穿过枯藤毒雾，剑柄和剑身缠绕青绿色藤蔓符文，带有中毒感。
+AI 提示词
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "木灵·飞剑". Enchanted flying sword attack card. An old flying sword pierces through dark green poisonous mist, with withered vine runes wrapping around the blade. Muted wood-element green glow, leaf-vein symbols, decayed secret realm background. Worn parchment card, aged bronze frame, small wood elemental stone icon, clear text area, dark low-saturation cultivation style.
+卡牌 11：水灵·飞剑
+视觉描述
+*.txt
+Plaintext
+飞剑被青蓝水雾包围，飞行轨迹像一道水波长线，表现虚弱和压制。
+AI 提示词
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "水灵·飞剑". Enchanted flying sword attack card. A floating old iron sword flies forward through cyan-blue water mist, leaving a ripple trail like a thin wave. The border glows with subtle water-element light, with wave runes and cold fog. Worn parchment, bronze frame, small water elemental stone icon, readable tactical card UI, dark ruined cultivation atmosphere.
+卡牌 12：火灵·飞剑
+视觉描述
+*.txt
+Plaintext
+飞剑剑尖带着暗红余烬，飞行轨迹像一条低亮度火线，周围有火星和烧焦符纹。
+AI 提示词
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "火灵·飞剑". Enchanted flying sword attack card. An old iron flying sword thrusts forward with dark red-orange ember fire on the blade tip, leaving a restrained burning trail. Small sparks and burnt talisman marks surround it. The fire is muted and ancient, not flashy. Worn parchment card, aged bronze frame, small fire elemental stone icon, clear text area, dark eastern fantasy cultivation UI.
+卡牌 13：土灵·飞剑
+视觉描述
+*.txt
+Plaintext
+飞剑飞出时带起碎石和尘土，剑身下方有山形土行阵纹，表现厚重与护身。
+AI 提示词
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "土灵·飞剑". Enchanted flying sword attack card. An old flying sword moves forward with ochre stone fragments, dust clouds and mountain-shaped earth runes. A faint protective earth formation appears below the sword. Muted earth-element glow, worn parchment card, aged bronze frame, small earth elemental stone icon, readable card UI, ancient ruined cultivation style.
+十三、后续可扩展武器牌
+这些可以作为你后面短刃、大刀、法。
+虽然当前配置未接入，但可以先生成视觉资源备用。
+
+##可以先生成视觉资源备用。
+
+卡牌 14：快刺
+*.txt
+Plaintext
+类型：攻击牌
+消耗：0 AP
+效果：造成 3 点伤害
+是否可注灵：是
+武器：短刃
+定位：低费连击
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "快刺". Attack card, cost 0 AP, deal 3 damage. Illustration shows a low-level cultivator using a short dagger to make a quick stabbing motion, with a narrow grey-white blade trail. The card frame is black iron and worn bronze, with aged talisman paper. Fast, sharp, low-cost attack feeling. Dark low-saturation ruined cultivation card UI, clear text area.
+卡牌 15：闪避
+*.txt
+Plaintext
+类型：防御牌
+消耗：1 AP
+效果：获得 4 点护盾，抽 1 张牌
+是否可注灵：否
+武器：短刃
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "闪避". Defense skill card, cost 1 AP, gain 4 block and draw 1 card. Illustration shows a cultivator with a short dagger stepping aside, leaving a faint afterimage and a small protective talisman shield. Dark secret realm background, old parchment card, bronze frame, subtle cyan movement lines, readable tactical card UI.
+卡牌 16：连环刺
+*.txt
+Plaintext
+类型：攻击牌
+消耗：1 AP
+效果：造成 2 点伤害 4 次
+是否可注灵：后续可注灵，但注灵只结算一次
+武器：短刃
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "连环刺". Attack card, cost 1 AP, multi-hit dagger attack. Illustration shows several rapid stabbing shadows from a short blade, four pale blade marks crossing in front of a dark ruined secret realm. The card frame is black iron and worn bronze, aged talisman paper, sharp motion feeling, low-saturation ancient cultivation style, clear text area.
+卡牌 17：劈砍
+*.txt
+Plaintext
+类型：攻击牌
+消耗：1 AP
+效果：造成 8 点伤害
+是否可注灵：是
+武器：大刀
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "劈砍". Attack card, cost 1 AP, deal 8 damage. Illustration shows a cultivator swinging a heavy blade downward, creating a thick grey slash and scattering stone dust. The style is heavy and forceful. Worn parchment card, dark iron and bronze frame, broken talisman corners, ruined secret realm background, low-saturation ancient cultivation UI.
+卡牌 18：架刀
+*.txt
+Plaintext
+类型：防御牌
+消耗：1 AP
+效果：获得 6 点护盾
+是否可注灵：否
+武器：大刀
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "架刀". Defense card, cost 1 AP, gain 6 block. Illustration shows a cultivator holding a large blade sideways as a guard, with a thick ochre protective shield rune in front. Heavy defensive feeling, dark ruined cultivation background, worn parchment, bronze frame, clear text area.
+卡牌 19：横扫
+*.txt
+Plaintext
+类型：攻击牌
+消耗：2 AP
+效果：对所有敌人造成 7 点伤害
+是否可注灵：是
+武器：大刀
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "横扫". Attack card, cost 2 AP, deal 7 damage to all enemies. Illustration shows a cultivator swinging a large blade in a wide arc, creating a broad grey-white slash across the battlefield. Dust, cracked stones and broken formation patterns are visible. Worn parchment card, aged bronze frame, dark low-saturation eastern fantasy style, readable card UI.
+卡牌 20：断岳
+*.txt
+Plaintext
+类型：攻击牌
+消耗：3 AP
+效果：造成 18 点伤害
+是否可注灵：是
+武器：大刀
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "断岳". Heavy attack card, cost 3 AP, deal 18 damage. Illustration shows a powerful downward blade strike splitting cracked stone ground, with a mountain-breaking feeling. The effect is strong but not flashy, using dark grey, ochre and muted bronze colors. Ancient worn parchment card, black iron frame, ruined cultivation battlefield, clear text area.
+卡牌 21：法弹
+*.txt
+Plaintext
+类型：攻击牌
+消耗：1 AP
+效果：造成 5 点伤害
+是否可注灵：是
+武器：法杖
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "法弹". Attack card, cost 1 AP, deal 5 damage. Illustration shows a low-level cultivator holding an old wooden staff, releasing a small pale jade spiritual projectile. The spell is weak but precise, with dim talisman particles. Worn parchment card, jade and bronze frame, dark ruined cultivation background, readable card UI.
+卡牌 22：灵盾
+*.txt
+Plaintext
+类型：防御牌
+消耗：1 AP
+效果：获得 5 点护盾
+是否可注灵：否
+武器：法杖
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "灵盾". Defense card, cost 1 AP, gain 5 block. Illustration shows an old wooden staff creating a pale jade circular spiritual shield with faint formation runes. Dark ruined secret realm background, worn parchment card, bronze and jade frame, low-saturation ancient cultivation UI, clear text area.
+卡牌 23：聚灵
+*.txt
+Plaintext
+类型：技能牌
+消耗：0 AP
+效果：本回合获得 1 点行动点，消耗
+是否可注灵：否
+武器：法杖
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "聚灵". Skill card, cost 0 AP, gain 1 AP this turn, exhaust. Illustration shows a cultivator gathering faint jade spiritual energy into the palm, with small broken formation rings around the hand. The atmosphere is restrained and ancient, not flashy. Worn parchment card, jade glow, bronze frame, dark low-saturation cultivation style, readable text area.
+卡牌 24：五行导引
+*.txt
+Plaintext
+类型：技能牌
+消耗：1 AP
+效果：本回合下一张可注灵攻击牌注灵伤害提高
+是否可注灵：否
+武器：法杖
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "五行导引". Skill card, cost 1 AP. Illustration shows five faint elemental lights, metal, wood, water, fire and earth, rotating around an old wooden staff and a small broken formation circle. The colors are muted and subtle, like remaining spiritual energy in a ruined world. Worn parchment card, bronze and jade frame, clear text area, dark ancient cultivation UI.
+十四、功法牌设计
+功法牌当前第二阶段不可注灵，但后面借法台会用到。
+建议先生成一批“一阶功法牌”。
+
+卡牌 25：火球术
+*.txt
+Plaintext
+功法：引火诀
+类型：功法攻击牌
+消耗：1 AP + 2 灵力
+效果：造成 8 点火伤，施加 2 层灼烧
+是否可注灵：否
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "火球术". Gongfa attack card from a fire cultivation manual. Cost 1 AP and 2 MP. Illustration shows a small dark red-orange fireball formed from fading alchemy fire, with burnt talisman fragments around it. The fire is restrained, ember-like, not flashy. Card frame uses jade slip, worn parchment and bronze, with fire-element talisman marks. Dark low-saturation ancient cultivation style, readable card UI.
+卡牌 26：引燃
+*.txt
+Plaintext
+功法：引火诀
+类型：功法技能牌
+消耗：1 AP
+效果：若目标有灼烧，额外造成伤害
+是否可注灵：否
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "引燃". Fire gongfa skill card. Illustration shows a cultivator making a hand seal, causing existing ember marks on the enemy to flare up with dark red fire. The scene uses burnt talisman patterns, low-saturation ember glow and ruined secret realm background. Worn parchment and jade slip card frame, clear text area, ancient cultivation UI.
+卡牌 27：火盾
+*.txt
+Plaintext
+功法：引火诀
+类型：功法防御牌
+消耗：1 AP + 1 灵力
+效果：获得 6 护盾，攻击者获得 1 层灼烧
+是否可注灵：否
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "火盾". Fire gongfa defense card. Illustration shows a half-circle shield made of dark red ember fire and burnt talisman runes in front of a cultivator. The flame is restrained and ancient, with sparks and ash. Worn parchment card, jade slip and bronze frame, dark ruined cultivation background, clear readable UI.
+卡牌 28：藤刺
+*.txt
+Plaintext
+功法：青木养气诀
+类型：功法攻击牌
+消耗：1 AP
+效果：造成 5 点伤害，施加 2 层中毒
+是否可注灵：否
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "藤刺". Wood gongfa attack card. Illustration shows dark green thorny vines piercing from cracked stone ground, carrying poisonous mist and leaf-vein runes. The wood energy feels decayed but alive, fitting a ruined cultivation world. Worn parchment card, jade and bronze frame, muted green glow, clear text area.
+卡牌 29：青木息
+*.txt
+Plaintext
+功法：青木养气诀
+类型：功法治疗牌
+消耗：1 AP + 2 灵力
+效果：恢复 5 点生命
+是否可注灵：否
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "青木息". Wood healing gongfa card. Illustration shows a cultivator breathing in faint green spiritual mist from withered herbs, restoring life with subtle jade-green glow. The mood is calm and restrained, not bright. Worn parchment card, jade slip frame, bronze details, dark low-saturation cultivation UI, readable text area.
+卡牌 30：毒藤缠绕
+*.txt
+Plaintext
+功法：青木养气诀
+类型：功法控制牌
+消耗：1 AP + 2 灵力
+效果：施加 2 层中毒和 1 层虚弱
+是否可注灵：否
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "毒藤缠绕". Wood control gongfa card. Illustration shows dark poisonous vines wrapping around an enemy silhouette, with green poison mist and faint weakening talisman marks. Ancient ruined secret realm background, worn parchment and jade slip frame, muted green and purple-grey colors, clear text area, low-saturation cultivation UI.
+卡牌 31：土甲术
+*.txt
+Plaintext
+功法：厚土护身诀
+类型：功法防御牌
+消耗：1 AP + 1 灵力
+效果：获得 8 点护盾
+是否可注灵：否
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "土甲术". Earth gongfa defense card. Illustration shows ochre stone armor plates forming around a cultivator, with mountain-shaped runes and dust particles. Heavy and stable feeling. Worn parchment card, jade slip and bronze frame, dark ruined cultivation background, low saturation, clear readable UI.
+卡牌 32：震地
+*.txt
+Plaintext
+功法：厚土护身诀
+类型：功法攻击 / 减益牌
+消耗：1 AP + 2 灵力
+效果：造成 6 点伤害，施加 1 层虚弱
+是否可注灵：否
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "震地". Earth gongfa attack and debuff card. Illustration shows a cultivator striking the ground, creating a small shockwave through cracked stone floor, with ochre dust and mountain runes. Enemy silhouette is destabilized by the tremor. Worn parchment card, bronze and jade frame, low-saturation dark cultivation UI, clear text area.
+卡牌 33：坚壁
+*.txt
+Plaintext
+消耗：2 AP
+效果：获得 14 点护盾
+是否可注灵：否
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation card named "坚壁". Earth defensetext
+A 2D eastern fantasy cultivation card named "坚壁". Earth defense gongfa card. Illustration shows a thick stone wall with ancient formation runes rising from cracked ground in front of a cultivator. The wall is old, rugged and protective. Worn parchment card, aged bronze frame, muted ochre earth colors, dark ruined cultivation background, clear text area.
+十五、消耗品卡牌 / 物品卡牌设计
+这些适合后续丹药、符箓、灵石袋进入战斗或背包 UI 时使用。
+
+卡牌 34：回灵丹
+*.txt
+Plaintext
+类型：消耗牌
+效果：恢复灵力
+是否可注灵：否
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation consumable card named "回灵丹". Illustration shows a small jade-green pill inside an old ceramic medicine bottle, with faint spiritual mist rising. Worn parchment card, bronze frame, alchemy furnace symbols, low-saturation ancient cultivation UI, clear text area.
+卡牌 35：清毒丹
+*.txt
+Plaintext
+类型：消耗牌
+效果：降低丹毒 / 清除中毒
+是否可注灵：否
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation consumable card named "清毒丹". Illustration shows a pale green medicinal pill with detoxifying mist, placed on an aged alchemy paper. There are small poison symbols fading away. Worn parchment card, bronze and jade frame, dark low-saturation alchemy UI style, clear text area.
+卡牌 36：破旧符箓
+*.txt
+Plaintext
+类型：消耗牌
+效果：造成小额伤害或施加状态
+是否可注灵：否
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D eastern fantasy cultivation consumable card named "破旧符箓". Illustration shows an old yellow talisman paper with faded red cinnabar runes, cracked edges and weak spiritual glow. Worn parchment card, bronze frame, dark ruined cultivation style, clear text area, no modern effects.
+十六、状态图标设计
+你当前状态有：
+
+力量
+虚弱
+中毒
+灼烧
+易伤
+破甲
+冻结
+这里也需要一批图标。
+
+状态图标提示词
+*.txt
+Plaintext
+设计一组 2D 东方玄幻修仙卡牌游戏状态图标，暗色低饱和风格，旧铜圆形边框，透明背景，清晰可读。
+力量：暗金色上升拳印或灵气符纹。
+虚弱：紫灰色低垂人影和断裂符文。
+中毒：墨绿色毒雾和腐蚀水滴。
+灼烧：暗红余烬火焰和烧焦符纸。
+易伤：红褐色裂开的身体轮廓或破碎护符。
+破甲：暗金色破裂铠甲和断裂盾牌。
+冻结：青蓝色冰纹和寒雾符印。
+整体适合放在战斗 UI 的小状态栏中，不要太复杂，不要高饱和霓虹。
+十七、敌人设计
+根据当前配置，先生成 3 个敌人。
+
+敌人 1：腐化灵鼠
+*.txt
+Plaintext
+生命：24
+攻击：6
+五行：木
+定位：基础攻击怪
+意图：爪击、爪击、啃咬
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D hand-painted enemy character for a dark eastern fantasy cultivation RPG, named "腐化灵鼠". It is a small corrupted spirit rat from an abandoned spiritual herb field. Wood element. Its fur is dark grey and mossy green, eyes faintly glowing, body has small vine-like corruption and spiritual cracks. It looks dangerous but low-level. Background transparent, game battle sprite, low-saturation ruined cultivation style, not cute, not overly scary.
+敌人 2：赤眼妖兔
+*.txt
+Plaintext
+生命：36
+攻击：8
+五行：火
+定位：速度快，带蓄力
+意图：冲撞、蓄力、猛撞
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D hand-painted enemy character for a dark eastern fantasy cultivation RPG, named "赤眼妖兔". It is a corrupted demon rabbit with red glowing eyes, fire element. Its fur is dirty white and dark brown, with ember-like red cracks around its eyes and paws. It has a fast aggressive posture, ready to charge. Low-saturation ruined secret realm style, transparent background, battle sprite, not cute, not cartoonish.
+敌人 3：枯藤精
+*.txt
+Plaintext
+生命：50
+攻击：7
+防御：2
+五行：木
+定位：远程 / 控制怪
+意图：藤击、缠绕、木盾、毒刺
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D hand-painted enemy character for a dark eastern fantasy cultivation RPG, named "枯藤精". It is a withered vine spirit from an abandoned spiritual field, wood element. The body is made of twisted dry vines, dead roots and dark green poisonous leaves. It has faint green spiritual light in the core, with thorny branches and old talisman scraps tangled around it. Low-saturation, ancient ruined cultivation atmosphere, transparent background, battle sprite.
+十八、物品图标设计
+结合你的物品表，当前需要先生成：
+
+破旧铁剑
+五行属性石
+后续灵草、灵石袋、功法残卷也可以准备
+物品 1：破旧铁剑
+*.txt
+Plaintext
+item_id：1101
+类型：装备 / 长剑
+占格：1×4
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D game item icon of an old iron sword for a dark eastern fantasy cultivation RPG. The sword is worn, slightly rusty, with faint broken spiritual runes on the blade. It should fit a 1x4 inventory item shape, vertical long icon. Low-saturation, ancient, practical, not legendary, not flashy. Transparent background.
+物品 2：五行属性石整组
+*.txt
+Plaintext
+item_id：
+2112 金属性石·一阶·普通
+2122 木属性石·一阶·普通
+2132 水属性石·一阶·普通
+2142 火属性石·一阶·普通
+2152 土属性石·一阶·普通
+AI 提示词：
+
+*.txt
+Plaintext
+Create five 2D item icons for a dark eastern fantasy cultivation RPG. They are first-tier normal elemental stones, each 1x1 inventory item, transparent background, readable at small size.
+Metal elemental stone: muted dark gold crystal with sharp sword-like metal runes.
+Wood elemental stone: muted green crystal with leaf veins and vine patterns.
+Water elemental stone: deep cyan-blue crystal with ripple and mist patterns.
+Fire elemental stone: dark red-orange crystal with ember cracks, not bright flame.
+Earth elemental stone: ochre-brown rock crystal with mountain and earth-layer runes.
+All stones should look like ancient cultivation resources from a ruined world, low saturation, subtle spiritual glow, not modern gems.
+物品 3：功法残卷
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D game item icon of an ancient cultivation manual fragment, named "功法残卷". It is a torn old scroll and bamboo slip piece, with faded ink characters, broken jade thread and faint teal spiritual glow. The item feels rare and valuable but damaged. Dark eastern fantasy cultivation RPG style, low saturation, transparent background, readable at small inventory size.
+物品 4：灵石袋
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D game item icon of a spirit stone pouch for a dark cultivation extraction RPG. It is a small worn cloth bag tied with a talisman rope, with a few faintly glowing spirit stones visible inside. The pouch is old, dusty, and valuable because it must be extracted successfully. Low-saturation ancient Chinese fantasy style, transparent background, readable at 1x1 inventory size.
+物品 5：低阶灵草
+AI 提示词：
+
+*.txt
+Plaintext
+A 2D game item icon of low-tier spiritual herb for a dark eastern fantasy cultivation RPG. A small bundle of muted green herbs with faint jade glow, slightly withered due to the age of spiritual exhaustion. Tied with old straw rope, transparent background, readable at small size, ancient ruined cultivation style.
+十九、建议你第一批优先生成的资源清单
+如果你要用 AI 批量生成，不建议一次做太多。
+我建议第一批先做这些，刚好对应你当前第二阶段。
+
+第一批 UI
+序号	UI 名称	优先级
+1	战斗主界面	最高
+2	临战法囊 5 格 UI	最高
+3	卡牌模板：攻击牌	最高
+4	卡牌模板：防御牌	最高
+5	注灵卡牌模板：五行变色版	最高
+6	敌人意图图标	高
+7	状态图标	高
+8	武器耐久条	高
+9	伤害预览面板	高
+10	战斗胜利 / 失败结算	中
+第一批卡牌
+序号	卡牌	类型	是否可注灵
+1	剑斩	攻击牌	是
+2	格挡	防御牌	否
+3	飞剑	攻击牌	是
+4	金灵·剑斩	注灵变体	已注灵
+5	木灵·剑斩	注灵变体	已注灵
+6	水灵·剑斩	注灵变体	已注灵
+7	火灵·剑斩	注灵变体	已注灵
+8	土灵·剑斩	注灵变体	已注灵
+9	金灵·飞剑	注灵变体	已注灵
+10	木灵·飞剑	注灵变体	已注灵
+11	水灵·飞剑	注灵变体	已注灵
+12	火灵·飞剑	注灵变体	已注灵
+13	土灵·飞剑	注灵变体	已注灵
+二十、最终给 AI 的统一母提示词
+你后面每次生成 UI 或卡牌，都可以先加这一段：
+
+*.txt
+Plaintext
+This asset belongs to a 2D dark eastern fantasy cultivation extraction card-building RPG called "Mofa Xunxian". The world is in the age of spiritual exhaustion. Ancient immortal sects are ruined, secret realms are dangerous, and cultivators must fight for scarce resources. The visual style is low-saturation Chinese ink wash, worn bronze, old wood, aged parchment, bamboo slips, jade slips, cracked stone slabs, broken formation patterns, talisman seals and subtle five-element spiritual glow. The mood is ancient, ruined, restrained, strategic and readable. No modern sci-fi, no cute chibi style, no flashy high-saturation mobile MMORPG effects.
+中文版本：
+
+*.txt
+Plaintext
+该资源属于 2D 暗色东方玄幻修仙搜打撤卡牌构筑 RPG《末法寻仙》。世界处于末法时代，古宗门遗迹残破，秘境危险，修士必须争夺稀缺资源。整体视觉为低饱和国风水墨、旧铜、古木、泛黄符纸、竹简、玉简、裂纹石板、残破阵纹、符箓封条和微弱五行灵光。氛围古朴、残破、克制、策略感强、信息清晰。不要现代科幻，不要 Q 版萌系，不要高饱和仙侠页游光效。
+二十一、我建议你的生成顺序
+飘，如果你要真的开始批量生成，我建议按这个顺序：
+
+*.txt
+Plaintext
+第一步：先生成战斗主界面大图
+第二步：生成卡牌基础模板
+第三步：生成剑斩、格挡、飞剑三张基础牌
+第四步：生成五行注灵变体
+第五步：生成临战法囊和五行属性石图标
+第六步：生成敌人意图图标和状态图标
+第七步：生成腐化灵鼠、赤眼妖兔、枯藤精
+第八步：再做结算界面、背包、传承殿、借法台
+这样最贴合你现在的代码和第二阶段目标，不会一下子发散太多。
