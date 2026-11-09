@@ -1588,6 +1588,522 @@ export class IitemConfig {
 
 
 
+export class Inew_battle_enemyConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.hp = _buf_.ReadInt()
+        this.intent1 = _buf_.ReadInt()
+        this.intent2 = _buf_.ReadInt()
+        this.intent3 = _buf_.ReadInt()
+    }
+
+    /**
+     * 敌人ID
+     */
+    readonly id: number
+    /**
+     * 名称
+     */
+    readonly name: string
+    /**
+     * 生命
+     */
+    readonly hp: number
+    /**
+     * 意图一
+     */
+    readonly intent1: number
+    /**
+     * 意图二
+     */
+    readonly intent2: number
+    /**
+     * 意图三
+     */
+    readonly intent3: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class Inew_battle_intentConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.damage = _buf_.ReadInt()
+        this.block = _buf_.ReadInt()
+        this.charging = _buf_.ReadInt()
+    }
+
+    /**
+     * 意图ID
+     */
+    readonly id: number
+    /**
+     * 名称
+     */
+    readonly name: string
+    /**
+     * 伤害
+     */
+    readonly damage: number
+    /**
+     * 护盾
+     */
+    readonly block: number
+    /**
+     * 明确蓄力
+     */
+    readonly charging: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class Inew_battle_potionConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.resource = _buf_.ReadString()
+        this.amount = _buf_.ReadInt()
+    }
+
+    /**
+     * 药品ID
+     */
+    readonly id: number
+    /**
+     * 名称
+     */
+    readonly name: string
+    /**
+     * 恢复资源
+     */
+    readonly resource: string
+    /**
+     * 恢复量
+     */
+    readonly amount: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class Inew_battle_ruleConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.player_hp = _buf_.ReadInt()
+        this.player_mp = _buf_.ReadInt()
+        this.base_attack = _buf_.ReadInt()
+        this.base_defense = _buf_.ReadInt()
+        this.weapon_attack = _buf_.ReadInt()
+        this.weapon_defense = _buf_.ReadInt()
+        this.max_durability = _buf_.ReadInt()
+    }
+
+    /**
+     * 规则ID
+     */
+    readonly id: number
+    /**
+     * 生命上限
+     */
+    readonly player_hp: number
+    /**
+     * 灵力上限
+     */
+    readonly player_mp: number
+    /**
+     * 基础攻击
+     */
+    readonly base_attack: number
+    /**
+     * 基础防御
+     */
+    readonly base_defense: number
+    /**
+     * 武器攻击
+     */
+    readonly weapon_attack: number
+    /**
+     * 武器防御
+     */
+    readonly weapon_defense: number
+    /**
+     * 武器最大耐久
+     */
+    readonly max_durability: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class Inew_build_passiveConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.kind = _buf_.ReadString()
+        this.school = _buf_.ReadString()
+        this.value = _buf_.ReadInt()
+        this.default_eligible = _buf_.ReadInt()
+    }
+
+    /**
+     * 被动ID
+     */
+    readonly id: number
+    /**
+     * 名称
+     */
+    readonly name: string
+    /**
+     * 触发类型
+     */
+    readonly kind: string
+    /**
+     * 所属大道
+     */
+    readonly school: string
+    /**
+     * 属性百分比
+     */
+    readonly value: number
+    /**
+     * 默认资格
+     */
+    readonly default_eligible: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class Inew_build_ruleConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.power_percent = _buf_.ReadInt()
+        this.low_hp_percent = _buf_.ReadInt()
+        this.common_mix_percent = _buf_.ReadInt()
+        this.first_cost = _buf_.ReadInt()
+        this.later_cost = _buf_.ReadInt()
+        this.normal_daoyun = _buf_.ReadInt()
+        this.elite_daoyun = _buf_.ReadInt()
+        this.forgo_points = _buf_.ReadInt()
+    }
+
+    /**
+     * 规则ID
+     */
+    readonly id: number
+    /**
+     * 磐劲本体百分比
+     */
+    readonly power_percent: number
+    /**
+     * 护命血线百分比
+     */
+    readonly low_hp_percent: number
+    /**
+     * 通用混入百分比
+     */
+    readonly common_mix_percent: number
+    /**
+     * 首次道韵消耗
+     */
+    readonly first_cost: number
+    /**
+     * 后续道韵消耗
+     */
+    readonly later_cost: number
+    /**
+     * 普通胜利道韵
+     */
+    readonly normal_daoyun: number
+    /**
+     * 精英胜利道韵
+     */
+    readonly elite_daoyun: number
+    /**
+     * 放弃主动点数
+     */
+    readonly forgo_points: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class Inew_earth_skillConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.kind = _buf_.ReadString()
+        this.mp_cost = _buf_.ReadInt()
+        this.damage_percent = _buf_.ReadInt()
+        this.shield_percent = _buf_.ReadInt()
+        this.conditional_percent = _buf_.ReadInt()
+        this.reduction_percent = _buf_.ReadInt()
+        this.counter_percent = _buf_.ReadInt()
+        this.default_eligible = _buf_.ReadInt()
+    }
+
+    /**
+     * 技能ID
+     */
+    readonly id: number
+    /**
+     * 名称
+     */
+    readonly name: string
+    /**
+     * 效果类型
+     */
+    readonly kind: string
+    /**
+     * 灵力消耗
+     */
+    readonly mp_cost: number
+    /**
+     * 本体攻击百分比
+     */
+    readonly damage_percent: number
+    /**
+     * 防御转盾百分比
+     */
+    readonly shield_percent: number
+    /**
+     * 磐劲自身倍率百分比
+     */
+    readonly conditional_percent: number
+    /**
+     * 防御转减伤百分比
+     */
+    readonly reduction_percent: number
+    /**
+     * 攻击转反击百分比
+     */
+    readonly counter_percent: number
+    /**
+     * 默认资格
+     */
+    readonly default_eligible: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class Inew_sword_passiveConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.kind = _buf_.ReadString()
+        this.value = _buf_.ReadInt()
+        this.default_eligible = _buf_.ReadInt()
+    }
+
+    /**
+     * 被动ID
+     */
+    readonly id: number
+    /**
+     * 名称
+     */
+    readonly name: string
+    /**
+     * 触发类型
+     */
+    readonly kind: string
+    /**
+     * 增势层数或属性百分比
+     */
+    readonly value: number
+    /**
+     * 默认资格
+     */
+    readonly default_eligible: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
+export class Inew_sword_skillConfig {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.kind = _buf_.ReadString()
+        this.mp_cost = _buf_.ReadInt()
+        this.damage_percent = _buf_.ReadInt()
+        this.shield_percent = _buf_.ReadInt()
+        this.shred_percent = _buf_.ReadInt()
+        this.mark_percent = _buf_.ReadInt()
+        this.default_eligible = _buf_.ReadInt()
+    }
+
+    /**
+     * 技能ID
+     */
+    readonly id: number
+    /**
+     * 名称
+     */
+    readonly name: string
+    /**
+     * 效果类型
+     */
+    readonly kind: string
+    /**
+     * 灵力消耗
+     */
+    readonly mp_cost: number
+    /**
+     * 本体攻击百分比
+     */
+    readonly damage_percent: number
+    /**
+     * 防御转盾百分比
+     */
+    readonly shield_percent: number
+    /**
+     * 攻击转削盾百分比
+     */
+    readonly shred_percent: number
+    /**
+     * 攻击转剑痕百分比
+     */
+    readonly mark_percent: number
+    /**
+     * 默认资格
+     */
+    readonly default_eligible: number
+
+/*
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    */
+}
+
+
+
+
+
 /**
  * 2个int值
  */
@@ -4111,6 +4627,492 @@ export class skill_loot_use {
 
 
 
+export class new_battle_rule {
+    private _dataMap: Map<number, Inew_battle_ruleConfig>
+	//private _dataObj: {[index:number]:Inew_battle_ruleConfig}
+    private _dataList: Inew_battle_ruleConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Inew_battle_ruleConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Inew_battle_ruleConfig
+            _v = new Inew_battle_ruleConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+			//this._dataObj[_v.id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Inew_battle_ruleConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Inew_battle_ruleConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Inew_battle_ruleConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Inew_battle_ruleConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class new_sword_skill {
+    private _dataMap: Map<number, Inew_sword_skillConfig>
+	//private _dataObj: {[index:number]:Inew_sword_skillConfig}
+    private _dataList: Inew_sword_skillConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Inew_sword_skillConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Inew_sword_skillConfig
+            _v = new Inew_sword_skillConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+			//this._dataObj[_v.id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Inew_sword_skillConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Inew_sword_skillConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Inew_sword_skillConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Inew_sword_skillConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class new_sword_passive {
+    private _dataMap: Map<number, Inew_sword_passiveConfig>
+	//private _dataObj: {[index:number]:Inew_sword_passiveConfig}
+    private _dataList: Inew_sword_passiveConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Inew_sword_passiveConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Inew_sword_passiveConfig
+            _v = new Inew_sword_passiveConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+			//this._dataObj[_v.id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Inew_sword_passiveConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Inew_sword_passiveConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Inew_sword_passiveConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Inew_sword_passiveConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class new_battle_intent {
+    private _dataMap: Map<number, Inew_battle_intentConfig>
+	//private _dataObj: {[index:number]:Inew_battle_intentConfig}
+    private _dataList: Inew_battle_intentConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Inew_battle_intentConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Inew_battle_intentConfig
+            _v = new Inew_battle_intentConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+			//this._dataObj[_v.id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Inew_battle_intentConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Inew_battle_intentConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Inew_battle_intentConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Inew_battle_intentConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class new_battle_enemy {
+    private _dataMap: Map<number, Inew_battle_enemyConfig>
+	//private _dataObj: {[index:number]:Inew_battle_enemyConfig}
+    private _dataList: Inew_battle_enemyConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Inew_battle_enemyConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Inew_battle_enemyConfig
+            _v = new Inew_battle_enemyConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+			//this._dataObj[_v.id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Inew_battle_enemyConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Inew_battle_enemyConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Inew_battle_enemyConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Inew_battle_enemyConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class new_battle_potion {
+    private _dataMap: Map<number, Inew_battle_potionConfig>
+	//private _dataObj: {[index:number]:Inew_battle_potionConfig}
+    private _dataList: Inew_battle_potionConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Inew_battle_potionConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Inew_battle_potionConfig
+            _v = new Inew_battle_potionConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+			//this._dataObj[_v.id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Inew_battle_potionConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Inew_battle_potionConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Inew_battle_potionConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Inew_battle_potionConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class new_earth_skill {
+    private _dataMap: Map<number, Inew_earth_skillConfig>
+	//private _dataObj: {[index:number]:Inew_earth_skillConfig}
+    private _dataList: Inew_earth_skillConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Inew_earth_skillConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Inew_earth_skillConfig
+            _v = new Inew_earth_skillConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+			//this._dataObj[_v.id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Inew_earth_skillConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Inew_earth_skillConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Inew_earth_skillConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Inew_earth_skillConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class new_build_passive {
+    private _dataMap: Map<number, Inew_build_passiveConfig>
+	//private _dataObj: {[index:number]:Inew_build_passiveConfig}
+    private _dataList: Inew_build_passiveConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Inew_build_passiveConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Inew_build_passiveConfig
+            _v = new Inew_build_passiveConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+			//this._dataObj[_v.id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Inew_build_passiveConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Inew_build_passiveConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Inew_build_passiveConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Inew_build_passiveConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
+export class new_build_rule {
+    private _dataMap: Map<number, Inew_build_ruleConfig>
+	//private _dataObj: {[index:number]:Inew_build_ruleConfig}
+    private _dataList: Inew_build_ruleConfig[]
+    private _loaded:boolean=false;
+    private _buf: ByteBuf;
+    constructor(_buf_: ByteBuf) {
+        this._buf = _buf_;
+        this._loaded = false;
+    }
+
+    private load():void{
+        if(this._loaded){
+            return;
+        }
+        let _buf_ = this._buf;
+        if(!_buf_){
+            console.error("_buf_ null");
+            return;
+        }
+        this._dataMap = new Map<number, Inew_build_ruleConfig>()
+        this._dataList = []
+		//this._dataObj = {}
+        for(let n = _buf_.ReadInt(); n > 0; n--) {
+            let _v: Inew_build_ruleConfig
+            _v = new Inew_build_ruleConfig(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+			//this._dataObj[_v.id] = _v
+        }
+        this._loaded = true;
+    }
+    getDataMap(): Map<number, Inew_build_ruleConfig> {this.load(); return this._dataMap; }
+	
+	//getDataObj(): { [index: number]: Inew_build_ruleConfig } {this.load(); return this._dataObj; }
+	
+    getDataList(): Inew_build_ruleConfig[] { this.load();return this._dataList; }
+
+    get(key: number): Inew_build_ruleConfig | undefined {
+		this.load();
+        return this._dataMap.get(key); 
+    }
+    
+/**
+    resolve(tables:Tables) {
+        
+    }
+ */    
+
+}
+
+
+
+
 type ByteBufLoader = (file: string) => ByteBuf
 
 export class Tables {
@@ -4160,6 +5162,24 @@ export class Tables {
     get skill_reward_entry(): skill_reward_entry  { return this._skill_reward_entry;}
     private _skill_loot_use: skill_loot_use
     get skill_loot_use(): skill_loot_use  { return this._skill_loot_use;}
+    private _new_battle_rule: new_battle_rule
+    get new_battle_rule(): new_battle_rule  { return this._new_battle_rule;}
+    private _new_sword_skill: new_sword_skill
+    get new_sword_skill(): new_sword_skill  { return this._new_sword_skill;}
+    private _new_sword_passive: new_sword_passive
+    get new_sword_passive(): new_sword_passive  { return this._new_sword_passive;}
+    private _new_battle_intent: new_battle_intent
+    get new_battle_intent(): new_battle_intent  { return this._new_battle_intent;}
+    private _new_battle_enemy: new_battle_enemy
+    get new_battle_enemy(): new_battle_enemy  { return this._new_battle_enemy;}
+    private _new_battle_potion: new_battle_potion
+    get new_battle_potion(): new_battle_potion  { return this._new_battle_potion;}
+    private _new_earth_skill: new_earth_skill
+    get new_earth_skill(): new_earth_skill  { return this._new_earth_skill;}
+    private _new_build_passive: new_build_passive
+    get new_build_passive(): new_build_passive  { return this._new_build_passive;}
+    private _new_build_rule: new_build_rule
+    get new_build_rule(): new_build_rule  { return this._new_build_rule;}
 
     static getTableNames(): string[] {
         let names: string[] = [];
@@ -4186,6 +5206,15 @@ export class Tables {
         names.push('skill_upgrade');
         names.push('skill_reward_entry');
         names.push('skill_loot_use');
+        names.push('new_battle_rule');
+        names.push('new_sword_skill');
+        names.push('new_sword_passive');
+        names.push('new_battle_intent');
+        names.push('new_battle_enemy');
+        names.push('new_battle_potion');
+        names.push('new_earth_skill');
+        names.push('new_build_passive');
+        names.push('new_build_rule');
         return names;
     }
 
@@ -4213,6 +5242,15 @@ export class Tables {
         this._skill_upgrade = new skill_upgrade(loader('skill_upgrade'))
         this._skill_reward_entry = new skill_reward_entry(loader('skill_reward_entry'))
         this._skill_loot_use = new skill_loot_use(loader('skill_loot_use'))
+        this._new_battle_rule = new new_battle_rule(loader('new_battle_rule'))
+        this._new_sword_skill = new new_sword_skill(loader('new_sword_skill'))
+        this._new_sword_passive = new new_sword_passive(loader('new_sword_passive'))
+        this._new_battle_intent = new new_battle_intent(loader('new_battle_intent'))
+        this._new_battle_enemy = new new_battle_enemy(loader('new_battle_enemy'))
+        this._new_battle_potion = new new_battle_potion(loader('new_battle_potion'))
+        this._new_earth_skill = new new_earth_skill(loader('new_earth_skill'))
+        this._new_build_passive = new new_build_passive(loader('new_build_passive'))
+        this._new_build_rule = new new_build_rule(loader('new_build_rule'))
 
         /*
         this._item.resolve(this)
@@ -4238,6 +5276,15 @@ export class Tables {
         this._skill_upgrade.resolve(this)
         this._skill_reward_entry.resolve(this)
         this._skill_loot_use.resolve(this)
+        this._new_battle_rule.resolve(this)
+        this._new_sword_skill.resolve(this)
+        this._new_sword_passive.resolve(this)
+        this._new_battle_intent.resolve(this)
+        this._new_battle_enemy.resolve(this)
+        this._new_battle_potion.resolve(this)
+        this._new_earth_skill.resolve(this)
+        this._new_build_passive.resolve(this)
+        this._new_build_rule.resolve(this)
         */
     }
 }
