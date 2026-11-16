@@ -2126,6 +2126,10 @@ export class Inew_expedition_nodeConfig {
         this.main_order = _buf_.ReadInt()
         this.x = _buf_.ReadFloat()
         this.y = _buf_.ReadFloat()
+        this.icon = _buf_.ReadString()
+        this.search_min = _buf_.ReadInt()
+        this.search_max = _buf_.ReadInt()
+        this.search_weight = _buf_.ReadInt()
     }
 
     /**
@@ -2164,9 +2168,29 @@ export class Inew_expedition_nodeConfig {
      * 纵坐标
      */
     readonly y: number
+    /**
+     * icon
+     */
+    readonly icon: string
+    /**
+     * search_min
+     */
+    readonly search_min: number
+    /**
+     * search_max
+     */
+    readonly search_max: number
+    /**
+     * search_weight
+     */
+    readonly search_weight: number
 
 /*
     resolve(tables:Tables) {
+        
+        
+        
+        
         
         
         
@@ -2404,6 +2428,14 @@ export class Inew_expedition_ruleConfig {
         this.transit_max = _buf_.ReadInt()
         this.search_min = _buf_.ReadInt()
         this.search_max = _buf_.ReadInt()
+        this.normal_min = _buf_.ReadInt()
+        this.normal_max = _buf_.ReadInt()
+        this.elite_min = _buf_.ReadInt()
+        this.elite_max = _buf_.ReadInt()
+        this.insight_min = _buf_.ReadInt()
+        this.insight_max = _buf_.ReadInt()
+        this.borrow_min = _buf_.ReadInt()
+        this.borrow_max = _buf_.ReadInt()
     }
 
     /**
@@ -2522,9 +2554,49 @@ export class Inew_expedition_ruleConfig {
      * 独立搜索上限
      */
     readonly search_max: number
+    /**
+     * normal_min
+     */
+    readonly normal_min: number
+    /**
+     * normal_max
+     */
+    readonly normal_max: number
+    /**
+     * elite_min
+     */
+    readonly elite_min: number
+    /**
+     * elite_max
+     */
+    readonly elite_max: number
+    /**
+     * insight_min
+     */
+    readonly insight_min: number
+    /**
+     * insight_max
+     */
+    readonly insight_max: number
+    /**
+     * borrow_min
+     */
+    readonly borrow_min: number
+    /**
+     * borrow_max
+     */
+    readonly borrow_max: number
 
 /*
     resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
