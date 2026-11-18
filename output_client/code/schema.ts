@@ -265,6 +265,12 @@ export class IitemConfig {
         this.weight = _buf_.ReadInt()
         this.weight_limit = _buf_.ReadInt()
         this.stamina_restore = _buf_.ReadInt()
+        this.recycle_price = _buf_.ReadInt()
+        this.enabled = _buf_.ReadInt()
+        this.weapon_attack = _buf_.ReadInt()
+        this.weapon_defense = _buf_.ReadInt()
+        this.weapon_durability = _buf_.ReadInt()
+        this.repair_amount = _buf_.ReadInt()
     }
 
     /**
@@ -335,6 +341,30 @@ export class IitemConfig {
      * 战外体力恢复
      */
     readonly stamina_restore: number
+    /**
+     * 回收基价（愿力）
+     */
+    readonly recycle_price: number
+    /**
+     * 已投放 1，待投放 0
+     */
+    readonly enabled: number
+    /**
+     * 武器攻击
+     */
+    readonly weapon_attack: number
+    /**
+     * 武器防御
+     */
+    readonly weapon_defense: number
+    /**
+     * 武器耐久上限
+     */
+    readonly weapon_durability: number
+    /**
+     * 修理量，-1 表示修满
+     */
+    readonly repair_amount: number
 
 
 }
@@ -694,6 +724,7 @@ export class IpotionConfig {
         this.id = _buf_.ReadInt()
         this.resource = _buf_.ReadString()
         this.amount = _buf_.ReadInt()
+        this.secondary_amount = _buf_.ReadInt()
     }
 
     /**
@@ -708,6 +739,10 @@ export class IpotionConfig {
      * 固定恢复量（点）
      */
     readonly amount: number
+    /**
+     * 双恢复的灵力恢复量
+     */
+    readonly secondary_amount: number
 
 
 }
