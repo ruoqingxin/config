@@ -1,7 +1,35 @@
 # 文档已迁移
 
+## 开发必读：项目精简规则（2026-11-18）
+
+- 正式配置按战斗、技能、敌人、物品、储物、地图六类建表，使用 `E:/NowChange/config/gen_client.bat` 导出；不再使用 N 总表，不保留新旧双份配置。
+- 只维护当前版本业务与测试，移除废弃实现、旧测试及版本兼容，不恢复历史逻辑。
+- 只记录核心规则、结构或数据变化。日常改动和资源增删、移动、更名无需逐次补文档或增加文档审批；资源仍维护有效引用、`.meta` UUID 和依赖。
+- 本轮已获用户明确授权清理配置、代码、预制及旧测试；下文“不授权”的一般说明不撤销这次授权。
+
 不要继续以本目录的旧策划文档开展开发。
 
 唯一现行入口：`E:\NowChange\ItemChangeWorld\document\09_整合开发\README.md`。
 
 后续需求、配置设计、实施阶段和验收统一以该目录为准。旧目录及原始快照仅供追溯；用户最新明确决定优先，尚未确认的提案不得自行落地。本指引不授权修改配置、导表、迁移或清理存档。
+
+## 开发必读：持续适用的代码与预制体规则
+
+以下规则适用于本项目的每次开发，包括新建或重新打开的对话，不依赖此前聊天记录。开始编码或调整界面前必须遵守：
+
+1. 代码注释全部使用中文，新增或修改的注释统一用中文说明用途、业务规则和必要原因。
+2. 简单固定节点尽量直接在预制体中添加。按钮、标题、背景、固定容器等提前搭建，代码负责绑定、更新和交互；数量由数据决定的动态列表项等可以实例化对应预制体。
+3. 主预制体名称、主控制脚本文件名和控制类名必须对应，使用一致的名称主体，例如 `ShopView.lh`、`ShopView.ts`、`ShopView`。
+4. 不将多个独立界面的功能放在一个预制体中处理。独立界面分别维护主预制体和主控制脚本；界面内部组成部分可以保留，通用组件可以拆分复用。
+
+## 开发必读：UI 框架规则
+
+新增、修改 Laya UI、`.lh`、界面类或列表时，必须先阅读 `E:/NowChange/ItemChangeWorld/document/09_整合开发/09_工程配置与存档约定.md` 的“开发必读：UI 框架规范（2026-11-18）”，并遵守：
+
+- 独立 UI 必须同时具备同名 `.lh` 和 TS 界面类。新增预制体放 `assets/ui/prefab/module/<模块名>/<UIName>.lh`，脚本放 `src/script/module/<模块名>/view/<UIName>.ts`；`path` 返回 `ui/prefab/module/<模块名>/<UIName>.lh`，路径统一用正斜杠，文件名和类名一致。
+- 沿用 `UIManager → UIBaseView → UIElements/ElementMapper`；实现当前基类要求的 `layer`、`path`、`onConstruct`、`onOpen`、`onClose`。`onOpen` 使用明确参数和类型，`...args` 仅留在基类定义中；刷新函数与事件响应分开。
+- `getElement` 只能传入 ElementMapper `elements` 已绑定的唯一节点名，禁止 `a/b/c` 路径。访问按钮内文本等子节点也要先单独绑定；在 `onConstruct` 缓存节点和绑定点击，业务逻辑不反复查找。
+- 项目封装 `List` 必须用 `this.elems.getList("list_name")` 获取。`onConstruct` 中设置 `itemCtrl`、按场景设置 `isVirtual`，需要点击时用 `setClickListener(this, this.onClickXxx)`，回调为 `(index: number, ctrl: XxxItemCtrl)`；上述初始化必须在首次 `list.array = [...]` 前完成，数据通过 `array` 绑定，不直接操作内部 item 节点。
+- `ListItemCtrl` 在 `setComponents(rootNode, index, ...)` 中查找节点和完成一次性初始化，`update(data, index, ...)` 只渲染与刷新状态。列表项控制器用 `XxxItemCtrl`，数据接口用 `IXxxItemData`。
+- 主预制根使用 `GWidget` 和 ElementMapper，所有脚本访问的界面节点显式绑定；列表包含 `GList` 和 `_templateNode`。新增节点按语义用 `btn_`、`txt_`、`img_`、`list_`、`box_` 前缀，同一映射范围名称唯一。页面/弹窗继续使用本项目 1280×720 横屏及原生 adapter 关系，公共片段沿用所属页面适配。
+- 新增 UI 按模块与名称确认、预制体/脚本配对、节点绑定、列表初始化顺序检查。缺少 `.lh` 时说明需在 Laya 编辑器创建或导出，不能只写 TS 就宣称完成；现有节点改名、预制移动和依赖更新仅按具体任务范围进行。

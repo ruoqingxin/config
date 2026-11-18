@@ -1,70 +1,21 @@
-const fs = require('fs');
-const path = require('path');
-var SnappyJS = require('snappyjs')
-// 源数据目录
-const dataDir = path.join(__dirname, 'output_client', 'data');
-// 输出文件
-const outputFile = path.join(__dirname, 'configbin.bin');
-
-// 确保输出目录存在
-const outputDir = path.dirname(outputFile);
-if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
+const fs = require("fs");
+const path = require("path");
+// 每次导表统一清理生成器残留的英文说明及停用代码块。
+const schemaFile = path.join(__dirname, "output_client/code/schema.ts");
+const schema = fs.readFileSync(schemaFile, "utf8").replace(/\/\*[\s\S]*?\*\/|\/\/[^\r\n]*/g,
+    comment => /[\u3400-\u9fff]/.test(comment) ? comment : "")
+    .replace(/[ \t]+(?=\r?$)/gm, "")
+    .replace(/\n(?:[ \t]*\r?\n){3,}/g, "\n\n");
+fs.writeFileSync(schemaFile, schema);
+const dataDir = path.join(__dirname, "output_client/data");
+const files = fs.readdirSync(dataDir).filter(name => name.endsWith(".bin")).sort();
+if (!files.length) throw new Error("没有可打包的配置");
+const int = value => { const b = Buffer.alloc(4); b.writeInt32LE(value); return b; };
+const chunks = [int(files.length)];
+for (const file of files) {
+    const name = Buffer.from(path.basename(file, ".bin"), "utf8");
+    const data = fs.readFileSync(path.join(dataDir, file));
+    chunks.push(int(name.length), name, int(data.length), data);
 }
-
-// 获取所有.bin文件
-const files = fs.readdirSync(dataDir)
-    .filter(file => file.endsWith('.bin'))
-    .sort(); // 按文件名排序，确保打包顺序一致
-
-
-// 写入文件数量
-const fileCount = Buffer.alloc(4);
-fileCount.writeUInt32LE(files.length, 0);
-let allBuffers = [fileCount];
-// 写入每个文件
-files.forEach(file => {
-    const filePath = path.join(dataDir, file);
-    const fileData = fs.readFileSync(filePath);
-    // 写入文件名长度
-    file = file.replace('.bin', '');
-    const nameBuffer = Buffer.from(file, 'utf8');
-    const nameLength = Buffer.alloc(4);
-    nameLength.writeUInt32LE(nameBuffer.length, 0);
-    allBuffers.push(nameLength);
-    
-    // 写入文件名
-    allBuffers.push(nameBuffer);
-    
-    // 写入文件内容长度
-    const contentLength = Buffer.alloc(4);
-    contentLength.writeUInt32LE(fileData.length, 0);
-    allBuffers.push(contentLength);
-    
-    // 写入文件内容
-    allBuffers.push(fileData);
-});
-
-const finalBuffer = Buffer.concat(allBuffers);
-console.log("finalBuffer.length",finalBuffer.length);
-var usecompressed = false;
-if(usecompressed){
-    var compressed = SnappyJS.compress(finalBuffer);
-    console.log("compressed.length",compressed.length);
-    //写入压缩标识
-    const compressFlag = Buffer.alloc(4);
-    compressFlag.writeUInt32LE(6666, 0);
-    let allBuffers2 = [];
-    allBuffers2.push(compressFlag);
-    allBuffers2.push(compressed);
-    let finalBuffer2 = Buffer.concat(allBuffers2);
-    console.log("finalBuffer2.length",finalBuffer2.length);
-    fs.writeFileSync(outputFile, finalBuffer2);
-}else{
-    fs.writeFileSync(outputFile, finalBuffer);
-}
-
-
-console.log('打包完成！');
-console.log(`总共打包了 ${files.length} 个文件`);
-console.log(`输出文件: ${outputFile}`);
+fs.writeFileSync(path.join(__dirname, "configbin.bin"), Buffer.concat(chunks));
+console.log(`已打包 ${files.length} 张配置表`);

@@ -1,13 +1,6 @@
-策划需要把下面两条链接看完即可学会配置。
-教程链接：
-快速上手：https://luban.doc.code-philosophy.com/docs/beginner/quickstart
-FAQ：https://luban.doc.code-philosophy.com/docs/help/faq
-
-
-必要的安装：dotnet-sdk-8.0.405-win-x64.exe
-
-配置表目录：Datas
-客户端导出目录：output_client
-服务器导出目录：output_server
-
-导出配置批处理文件：gen_all.bat   双击 即可导出服务器跟客户端的配置
+配置表目录：Datas，按战斗、技能、敌人、物品、储物、地图分类维护。
+导出入口：gen_client.bat。
+运行前安装 .NET 8，脚本使用本目录 Node 打包。
+导出结果：output_client/code/schema.ts、output_client/data/*.bin、configbin.bin。
+脚本自动将 schema 和配置包同步至相邻 ItemChangeWorld 客户端。
+生成代码和数据不可手改；开发规则见 AGENTS.md。
